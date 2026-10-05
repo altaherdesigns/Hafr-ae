@@ -1,0 +1,16 @@
+<svg class="scene scene--proof" viewBox="0 0 640 460" role="img" aria-label="{{c.name.proof.label|attr}}">
+<defs>
+<linearGradient id="pf-wall" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#173238"/><stop offset="1" stop-color="#0B1C1F"/></linearGradient>
+<linearGradient id="pf-metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E4D3AD"/><stop offset=".45" stop-color="#B9A06A"/><stop offset="1" stop-color="#D8C49A"/></linearGradient>
+<filter id="pf-drop" x="-10%" y="-20%" width="130%" height="150%"><feGaussianBlur in="SourceAlpha" stdDeviation="4"/><feOffset dx="6" dy="8"/><feComponentTransfer><feFuncA type="linear" slope=".55"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect x="0.5" y="0.5" width="639" height="459" rx="6" fill="#FBF8F2" stroke="#D9D1C3"/>
+<text class="svgt svgt--label" x="320" y="42" text-anchor="middle">{{c.name.proof.label}}</text>
+<rect x="40" y="64" width="560" height="262" rx="3" fill="url(#pf-wall)"/>
+<g stroke="#B9A06A" stroke-width="1.2" fill="none"><path d="M168 104H472M168 98V110M472 98V110"/></g>
+<text class="svgt svgt--dims" x="320" y="92" text-anchor="middle">{{c.name.proof.dims}}</text>
+<text class="svgt svgt--name" x="320" y="232" text-anchor="middle" lang="ar" direction="rtl" fill="url(#pf-metal)" filter="url(#pf-drop)">{{c.name.proof.name}}</text>
+<g stroke="#5C5650" stroke-width="1"><path d="M70 392H290M350 392H570"/></g>
+<text class="svgt svgt--sig" x="180" y="418" text-anchor="middle">{{c.name.proof.signed}}</text>
+<text class="svgt svgt--sig" x="460" y="418" text-anchor="middle">{{c.name.proof.date}}</text>
+</svg>

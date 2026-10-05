@@ -1,0 +1,19 @@
+{
+  "_note": "Terms that must never appear in either generated page: text, attribute values or JSON-LD. Owner rules, spec §3 and §10.5.",
+  "latin": [
+    "stainless", "steel", "aluminium", "aluminum", "brass", "bronze", "copper", "acrylic",
+    "304", "316", "grade",
+    "warranty", "guarantee", "lifetime", "AED", "price",
+    "luxury", "premium", "exclusive", "elegant",
+    "name plate", "nameplate"
+  ],
+  "arabic": [
+    "ستانلس", "فولاذ", "ألمنيوم", "ألومنيوم", "نحاس", "برونز", "أكريليك",
+    "ضمان", "سعر", "درهم",
+    "فاخر", "فخم", "حصري",
+    "لوحة اسم"
+  ],
+  "patterns": [
+    "\\d+\\s*(year|years|سنة|سنوات|عام|عاماً)"
+  ]
+}
