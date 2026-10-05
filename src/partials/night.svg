@@ -1,0 +1,11 @@
+<svg class="scene scene--night" viewBox="0 0 640 420" aria-hidden="true" focusable="false">
+<defs>
+<radialGradient id="nt-wall" cx=".5" cy=".46" r=".75"><stop offset="0" stop-color="#1B2A2C"/><stop offset=".6" stop-color="#0E1517"/><stop offset="1" stop-color="#070B0C"/></radialGradient>
+<radialGradient id="nt-spill" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFD9A0" stop-opacity=".28"/><stop offset=".55" stop-color="#FFD9A0" stop-opacity=".07"/><stop offset="1" stop-color="#FFD9A0" stop-opacity="0"/></radialGradient>
+<filter id="nt-halo" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="16" result="a"/><feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"/><feMerge><feMergeNode in="a"/><feMergeNode in="b"/></feMerge></filter>
+</defs>
+<rect width="640" height="420" fill="url(#nt-wall)"/>
+<ellipse cx="320" cy="214" rx="250" ry="170" fill="url(#nt-spill)"/>
+<text class="svgt svgt--num" x="320" y="282" text-anchor="middle" fill="#FFD9A0" filter="url(#nt-halo)" opacity=".9">{{c.dark.scene_label}}</text>
+<text class="svgt svgt--num" x="320" y="282" text-anchor="middle" fill="#0A0E0F" stroke="#FFE6BD" stroke-opacity=".55" stroke-width="1.2">{{c.dark.scene_label}}</text>
+</svg>

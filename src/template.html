@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="{{lang}}" dir="{{dir}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{c.meta.title}}</title>
+<script type="importmap">{{importmap|raw}}</script>
+<script>{{head_js|raw}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+{{#each fonts}}<link rel="stylesheet" href="{{.|attr}}">
+{{/each}}<link rel="stylesheet" href="{{base}}assets/css/site.css">
+<meta name="description" content="{{c.meta.description|attr}}">
+{{#if dev}}<meta name="robots" content="noindex">
+{{/if}}<link rel="canonical" href="{{canonical}}">
+{{#each alternates}}<link rel="alternate" hreflang="{{.hreflang}}" href="{{.href}}">
+{{/each}}<meta name="theme-color" content="#0F2427">
+<link rel="icon" href="{{base}}assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{{base}}assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="{{base}}assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hafr">
+<meta property="og:title" content="{{c.meta.title|attr}}">
+<meta property="og:description" content="{{c.meta.description|attr}}">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:locale" content="{{og_locale}}">
+<meta property="og:locale:alternate" content="{{og_locale_alt}}">
+<meta property="og:image" content="{{og_image}}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{c.stage.still_alt|attr}}">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{{jsonld|raw}}</script>
+<script type="module" src="{{base}}assets/js/site.js"></script>
+</head>
+<body>
+<a class="skip" href="#make">{{c.ui.skip}}</a>
+
+<header class="hd" data-hd data-tone="dark">
+  <div class="hd__in">
+    <a class="hd__home" href="#stage">{{> lockup}}</a>
+    <nav class="hd__nav" aria-label="{{c.ui.nav_label|attr}}">
+      <a href="#make">{{c.nav.make}}</a>
+      <a href="#built">{{c.nav.built}}</a>
+      <a href="#name">{{c.nav.name}}</a>
+      <a href="#start">{{c.nav.start}}</a>
+    </nav>
+    <div class="hd__end">
+      <a class="hd__lang" href="{{switch.href}}" hreflang="{{switch.lang}}" lang="{{switch.lang}}" dir="{{switch.dir}}">{{switch.label}}</a>
+      <a class="btn btn--line" href="#start">{{c.nav.begin}}</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="stage" id="stage" data-stage data-surface="dark" aria-labelledby="stage-h">
+  <div class="stage__sticky" data-stage-sticky>
+    <div class="stage__wall" aria-hidden="true"></div>
+    <div class="stage__still" data-still>{{> lockup}}</div>
+    <div class="stage__canvas" data-canvas aria-hidden="true"></div>
+    <div class="stage__scrim" aria-hidden="true"></div>
+    <div class="stage__text">
+      <h1 class="stage__h1" id="stage-h" data-headline>{{c.stage.headline}}</h1>
+      <p class="stage__cap" data-cap="0">{{c.stage.captions.0}}</p>
+      <p class="stage__cap" data-cap="1">{{c.stage.captions.1}}</p>
+      <p class="stage__cap" data-cap="2">{{c.stage.captions.2}}</p>
+    </div>
+    <a class="stage__skip" href="#make" data-skip>{{c.stage.skip}}<span class="stage__arrow" aria-hidden="true"></span></a>
+  </div>
+</section>
+
+<section class="sec sec--ivory" id="make" data-surface="light" aria-labelledby="make-h">
+  <div class="wrap sec__grid">
+    <div class="sec__head" data-reveal>
+      <p class="eyebrow"><bdi>01</bdi></p>
+      <h2 class="h2" id="make-h">{{c.make.title}}</h2>
+      <p class="lede">{{c.make.intro}}</p>
+    </div>
+    <div class="sec__body">
+      <ol class="rows">
+        {{#each c.make.items}}<li class="row" data-reveal>
+          <span class="row__num"><bdi>{{@nn}}</bdi></span>
+          <h3 class="row__name">{{.name}}</h3>
+          <p class="row__desc">{{.desc}}</p>
+        </li>
+        {{/each}}</ol>
+      <p class="aside" data-reveal>{{c.make.also}}</p>
+    </div>
+  </div>
+</section>
+
+<div class="kerf" aria-hidden="true"></div>
+
+<section class="sec sec--night" id="built" data-surface="dark" aria-labelledby="built-h">
+  <div class="wrap">
+    <div class="sec__head sec__head--wide" data-reveal>
+      <p class="eyebrow"><bdi>02</bdi></p>
+      <h2 class="h2" id="built-h">{{c.built.title}}</h2>
+      <p class="lede">{{c.built.intro}}</p>
+    </div>
+    {{#if c.built.has_rows}}<table class="cmp">
+      <thead><tr><th scope="col">{{c.built.col_fail}}</th><th scope="col">{{c.built.col_build}}</th></tr></thead>
+      <tbody>
+        {{#each c.built.rows}}<tr data-reveal{{#if .pending}} data-pending{{/if}}>
+          <td class="cmp__fail">{{.fail}}</td>
+          <td class="cmp__build">{{.build}}{{#if .pending}} <span class="badge">{{c.ui.pending}}</span>{{/if}}</td>
+        </tr>
+        {{/each}}</tbody>
+    </table>{{/if}}
+    {{#if c.built.show_fallback}}<p class="statement" data-reveal>{{c.built.fallback}}</p>{{/if}}
+  </div>
+</section>
+
+<section class="sec sec--ivory" id="name" data-surface="light" aria-labelledby="name-h">
+  <div class="wrap sec__grid sec__grid--media">
+    <div class="sec__head" data-reveal>
+      <p class="eyebrow"><bdi>03</bdi></p>
+      <h2 class="h2" id="name-h">{{c.name.title}}</h2>
+      <p class="lede">{{c.name.intro}}</p>
+      <figure class="frame frame--proof">{{> proof}}</figure>
+    </div>
+    <ol class="steps">
+      {{#each c.name.steps}}<li class="step" data-reveal>
+        <span class="step__num"><bdi>{{@nn}}</bdi></span>
+        <div><h3 class="step__title">{{.title}}</h3><p class="step__text">{{.text}}</p></div>
+      </li>
+      {{/each}}</ol>
+  </div>
+</section>
+
+<section class="sec sec--deep" id="dark" data-surface="dark" aria-labelledby="dark-h">
+  <div class="wrap sec__grid sec__grid--media">
+    <figure class="frame frame--night" data-reveal>{{> night}}</figure>
+    <div class="sec__head" data-reveal>
+      <p class="eyebrow"><bdi>04</bdi></p>
+      <h2 class="h2" id="dark-h">{{c.dark.title}}</h2>
+      <p class="lede">{{c.dark.intro}}</p>
+      {{#if c.dark.show_lighting}}<p class="body"{{#if c.dark.pending}} data-pending{{/if}}>{{c.dark.lighting}}{{#if c.dark.pending}} <span class="badge">{{c.ui.pending}}</span>{{/if}}</p>{{/if}}
+      {{#if c.dark.show_fallback}}<p class="body">{{c.dark.fallback}}</p>{{/if}}
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--sand" id="kit" data-surface="light" aria-labelledby="kit-h">
+  <div class="wrap sec__grid">
+    <div class="sec__head" data-reveal>
+      <p class="eyebrow"><bdi>05</bdi></p>
+      <h2 class="h2" id="kit-h">{{c.kit.title}}</h2>
+      {{#if c.kit.has_items}}<p class="lede">{{c.kit.intro}}</p>{{/if}}
+      {{#if c.kit.show_fallback}}<p class="lede">{{c.kit.fallback}}</p>{{/if}}
+    </div>
+    <div class="sec__body">
+      {{#if c.kit.has_items}}<ul class="kit"{{#if c.kit.pending}} data-pending{{/if}} data-reveal>
+        {{#each c.kit.items}}<li>{{.}}</li>
+        {{/each}}</ul>{{#if c.kit.pending}}<p><span class="badge">{{c.ui.pending}}</span></p>{{/if}}{{/if}}
+      <p class="body" data-reveal>{{c.kit.install}}</p>
+      <p class="body body--strong" data-reveal>{{c.kit.install_standard}}</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--night sec--start" id="start" data-surface="dark" aria-labelledby="start-h">
+  <div class="wrap sec__grid">
+    <div class="sec__head" data-reveal>
+      <p class="eyebrow"><bdi>06</bdi></p>
+      <h2 class="h2 h2--xl" id="start-h">{{c.start.title}}</h2>
+    </div>
+    <div class="sec__body">
+      <p class="lede">{{c.start.intro}}</p>
+      <ol class="send" data-reveal>
+        {{#each c.start.send}}<li>{{.}}</li>
+        {{/each}}</ol>
+      <p class="cta" data-reveal>
+        <a class="btn btn--solid" href="{{wa_url|attr}}" target="_blank" rel="noopener">{{c.start.cta}}</a>
+        <span class="cta__num"><bdi dir="ltr">+{{whatsapp}}</bdi></span>
+      </p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ft" data-surface="dark">
+  <div class="wrap ft__grid">
+    <div class="ft__brand">
+      <a class="ft__logo" href="#stage">{{> lockup}}</a>
+      <p class="ft__name">{{c.footer.brand|html}}</p>
+      <p class="ft__tag">{{c.footer.tagline}}</p>
+    </div>
+    <nav class="ft__nav" aria-label="{{c.ui.footer_nav_label|attr}}">
+      <a href="#make">{{c.nav.make}}</a>
+      <a href="#built">{{c.nav.built}}</a>
+      <a href="#name">{{c.nav.name}}</a>
+      <a href="#start">{{c.nav.start}}</a>
+    </nav>
+    <div class="ft__contact">
+      <a href="{{wa_url|attr}}" target="_blank" rel="noopener">{{c.ui.whatsapp}}</a>
+      {{#if has_instagram}}<a href="{{instagram_url|attr}}" target="_blank" rel="noopener">{{c.ui.instagram}}</a>{{/if}}
+      <a href="{{switch.href}}" hreflang="{{switch.lang}}" lang="{{switch.lang}}" dir="{{switch.dir}}">{{switch.label}}</a>
+    </div>
+  </div>
+  <div class="wrap ft__base">
+    <details class="maker">
+      <summary><span class="maker__mark">{{> mark}}</span><span class="maker__q">{{c.footer.maker_q}}</span></summary>
+      <p class="maker__text">{{c.footer.maker_text}} <a href="https://altaherdesign.ae" target="_blank" rel="noopener">{{c.footer.maker_link}}<span class="vh"> {{c.footer.new_tab}}</span></a>.</p>
+    </details>
+    <p class="ft__fine">{{c.footer.fine}} <a href="https://altaherdesign.ae" target="_blank" rel="noopener">{{c.footer.fine_link}}<span class="vh"> {{c.footer.new_tab}}</span></a>{{#if c.footer.fine_after}} {{c.footer.fine_after}}{{/if}} <span aria-hidden="true">·</span> {{c.footer.copyright}}</p>
+  </div>
+</footer>
+</body>
+</html>

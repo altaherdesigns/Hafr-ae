@@ -1,0 +1,126 @@
+{
+  "meta": {
+    "title": "Hafr — Your family name, carved to stay",
+    "description": "Exterior signage cut in metal for UAE villas: house numbers, family names in Arabic, flag and family-crest pieces, gate and boundary-wall panels, and plot-entrance monuments."
+  },
+  "ui": {
+    "skip": "Skip to content",
+    "nav_label": "Main",
+    "footer_nav_label": "On this page",
+    "pending": "Pending verification",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram",
+    "home": "Home"
+  },
+  "nav": {
+    "make": "What we make",
+    "built": "Craft",
+    "name": "The name",
+    "start": "Contact",
+    "begin": "Begin"
+  },
+  "stage": {
+    "headline": "Your family name, carved to stay.",
+    "skip": "Skip to what we make",
+    "captions": ["One cut.", "Lifted off the wall.", "Fixed to stay."],
+    "still_alt": "Hafr"
+  },
+  "make": {
+    "title": "What we make",
+    "intro": "Pieces made for your wall: measured to it, set in the script you choose, and built to stay at the entrance to your home.",
+    "items": [
+      {"name": "House numbers", "desc": "Cut metal numerals, raised off the wall, in Arabic digits, Latin digits or both."},
+      {"name": "Family and owner names", "desc": "Your family name in Arabic, with a Latin transliteration if you want one, checked and approved before anything is cut."},
+      {"name": "Flag and family-crest pieces", "desc": "Cut crests and flag pieces for the gate, with flag poles."},
+      {"name": "Gate and boundary-wall panels", "desc": "Cut panels and screens made to the exact measurements of your boundary wall."},
+      {"name": "Plot-entrance monuments", "desc": "Freestanding monuments at the entrance to the plot, installed by our team."}
+    ],
+    "also": "From the same workshop: cut wall art for interiors."
+  },
+  "built": {
+    "title": "Built to stay outside",
+    "intro": "Gulf summers, sun, salt and humidity find every shortcut, so every piece is specified for what it will actually face.",
+    "col_fail": "What fails here",
+    "col_build": "How Hafr builds",
+    "rows": [
+      {"status": "pending", "fail": "Printed faces that chalk and fade in the sun", "build": "Finishes chosen to hold their colour in Gulf sun"},
+      {"status": "pending", "fail": "Thin sheets that bend in the heat and lift at the fixings", "build": "Thickness matched to the size of each piece"},
+      {"status": "pending", "fail": "Metal that rusts near the sea and stains the wall", "build": "Metal chosen by the plot's distance from the sea"},
+      {"status": "pending", "fail": "Fixings that rust before the sign does", "build": "Fixings matched to the piece, so they don't stain the wall"},
+      {"status": "pending", "fail": "Lights that cook in a 50°C summer and fail one letter at a time", "build": "Sealed lighting rated for 50°C, with a driver that can be reached"},
+      {"status": "pending", "fail": "Flush mounting that traps water and stains a rectangle on the wall", "build": "Mounted 15 to 25 mm off the wall, for drainage, air and a true shadow line"},
+      {"status": "pending", "fail": "Raw, sharp cut edges", "build": "Every edge deburred and rounded"}
+    ],
+    "fallback": "Every piece is specified for 45 to 50°C summers, intense sun, coastal salt, seasonal humidity and winter sand."
+  },
+  "name": {
+    "title": "The name is the piece",
+    "intro": "Arabic letters change shape with their position, and one wrong form is obvious to everyone who passes your gate. So nothing reaches the machine until you have approved it in writing.",
+    "steps": [
+      {"title": "You type the name", "text": "In Arabic, yourself. We never transcribe it from a voice note."},
+      {"title": "You choose a setting", "text": "Two or three treatments of your actual name, not a sample."},
+      {"title": "You see it on your wall", "text": "At true proportions with dimensions marked, on a photo of your own wall where possible."},
+      {"title": "You sign it off", "text": "Your written approval is dated and kept with the job."},
+      {"title": "A second reading", "text": "Another Arabic reader checks the proof against the text you sent, before anything is cut."},
+      {"title": "Cut, finished, photographed", "text": "The file is locked, then the piece is cut, finished and photographed before it ships."}
+    ],
+    "proof": {
+      "label": "Proof 01 · true proportions",
+      "dims": "1100 mm",
+      "signed": "Approved by",
+      "date": "Date",
+      "name": "اسمك"
+    }
+  },
+  "dark": {
+    "title": "After dark",
+    "intro": "Lit from behind, the name floats on the wall. Lit from the front, it reads from the street.",
+    "status": "pending",
+    "lighting": "Sealed LED modules made for 50°C summers, with the driver placed where it can be reached, so a service is a quick swap rather than taking the piece down.",
+    "fallback": "Pieces can be lit from behind or from the front, to suit the wall and the street.",
+    "scene_label": "٢٤"
+  },
+  "kit": {
+    "title": "Delivered ready to fit",
+    "intro": "Every piece arrives with everything needed to fit it:",
+    "status": "pending",
+    "items": [
+      "A full-size drilling template, with the drill size printed on it",
+      "Anchors for UAE block-and-render walls, plus spares",
+      "Standoffs matched to the piece",
+      "The right key or bit for the fixings",
+      "A small spirit level",
+      "Photo instructions in Arabic and English",
+      "Protective film that comes off last"
+    ],
+    "fallback": "Every piece arrives ready to fit, or we install it on request.",
+    "install": "Prefer we fit it? Installation is available on request.",
+    "install_standard": "Gate and wall panels, screens and plot-entrance monuments are always installed by the Hafr team."
+  },
+  "start": {
+    "title": "Start with a photo of your wall",
+    "intro": "Send us on WhatsApp:",
+    "send": [
+      "A photo of the gate or wall",
+      "The rough width available",
+      "What the wall is made of",
+      "Which way the wall faces (for sun and shadow)",
+      "Whether there is power nearby (for lighting)",
+      "The name, typed in Arabic"
+    ],
+    "cta": "Begin on WhatsApp",
+    "wa_message": "Hello Hafr, I'd like to start a piece for the entrance to my home."
+  },
+  "footer": {
+    "brand": "Hafr · <span lang=\"ar\" dir=\"rtl\">حفر</span>",
+    "tagline": "Exterior signage for villas and buildings in the UAE, cut in metal to stay.",
+    "maker_q": "Who makes Hafr?",
+    "maker_text": "Every Hafr piece is cut and finished in the workshops of",
+    "maker_link": "Al Taher Group",
+    "new_tab": "(opens in a new tab)",
+    "fine": "Hafr, an",
+    "fine_link": "Al Taher Group",
+    "fine_after": "line",
+    "copyright": "© 2026 Hafr"
+  }
+}
