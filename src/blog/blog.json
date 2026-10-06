@@ -1,0 +1,29 @@
+{
+  "index": {
+    "title": "Villa Sign Guides: Cost, Materials, Size and Lighting | Hafr",
+    "description": "Plain answers for UAE villa owners: what a villa sign costs, which materials last in Gulf sun and salt air, how big it should be and how to light it.",
+    "label": "Guides",
+    "h1": "Plain answers for the sign at your gate",
+    "intro": "What a villa sign costs, what it should be cut from, how big it should be and how it reads after dark. Written by the people who cut them, for villa owners across the UAE.",
+    "list_label": "All guides",
+    "empty": "The first guides are on their way. Until then, send us a photo of your wall on WhatsApp.",
+    "cta": "Planning a sign for your gate? We reply with a size recommendation and a written quote.",
+    "wa_message": "Hello Hafr, I’ve been reading your guides and I’d like to ask about a sign for my home."
+  },
+  "post": {
+    "guide": "Guide",
+    "published": "Published",
+    "updated": "Updated",
+    "reading": "Reading time",
+    "read": "min read",
+    "minutes": "minutes",
+    "toc": "On this page",
+    "more": "Keep reading",
+    "crumbs": "Breadcrumb",
+    "home": "Hafr",
+    "guides": "Guides",
+    "draft": "Draft, not published",
+    "site_nav": "Site",
+    "feed": "Guides feed"
+  }
+}

@@ -44,7 +44,8 @@
       <a href="#make">{{c.nav.make}}</a>
       <a href="#built">{{c.nav.built}}</a>
       <a href="#name">{{c.nav.name}}</a>
-      <a href="#start">{{c.nav.start}}</a>
+      {{#if guides.in_header}}<a href="{{guides.href}}">{{guides.label}}</a>
+      {{/if}}<a href="#start">{{c.nav.start}}</a>
     </nav>
     <div class="hd__end">
       <a class="hd__lang" href="{{switch.href}}" hreflang="{{switch.lang}}" lang="{{switch.lang}}" dir="{{switch.dir}}">{{switch.label}}</a>
@@ -196,6 +197,7 @@
     <div class="ft__contact">
       <a href="{{wa_url|attr}}" target="_blank" rel="noopener">{{c.ui.whatsapp}}</a>
       {{#if has_instagram}}<a href="{{instagram_url|attr}}" target="_blank" rel="noopener">{{c.ui.instagram}}</a>{{/if}}
+      <a href="{{guides.href}}" hreflang="en" lang="en" dir="ltr">{{guides.label}}</a>
       <a href="{{switch.href}}" hreflang="{{switch.lang}}" lang="{{switch.lang}}" dir="{{switch.dir}}">{{switch.label}}</a>
     </div>
   </div>

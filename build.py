@@ -1,4 +1,4 @@
-"""Build hafr.ae.
+"""Build hafr.ae: the landing page in Arabic and English, and the English guides (/en/blog/).
 
     python build.py                 development build into dev/ (placeholders visible, noindex)
     python build.py --production    production build into public/ (fails on any rule breach)
@@ -11,6 +11,8 @@ import os
 import shutil
 import sys
 
+from hafrbuild import blogsite
+from hafrbuild.blog import BlogError
 from hafrbuild.checks import find_banned, load_banned, validate_site
 from hafrbuild.pages import (DEFAULT_CDN, amiri_text, arabic_chars, font_links, importmap,
                              page_context, robots, sitemap, gate)
@@ -112,6 +114,17 @@ def main(argv=None):
             problems.append(f'{lang}: unresolved [[placeholder]] in output')
         if production and 'data-pending' in page:
             problems.append(f'{lang}: pending claim rendered in production')
+
+    # The guides (/en/blog/) follow their own rulebook, src/blog/banned.json.
+    c_en, _ = gate(contents['en'], production)
+    try:
+        blog_files, blog_urls, blog_problems, blog_notes = blogsite.build(ROOT, site, c_en, production, partials)
+    except BlogError as exc:
+        return fail([f'guides: {e}' for e in exc.errors])
+    except RenderError as exc:
+        return fail([f'guides render: {exc}'])
+    problems += blog_problems
+
     if production and problems:
         return fail(problems)
     for p in problems:
@@ -124,8 +137,12 @@ def main(argv=None):
     shutil.copy(os.path.join(ROOT, 'CNAME'), os.path.join(out, 'CNAME'))
     _write(os.path.join(out, 'index.html'), pages['ar'])
     _write(os.path.join(out, 'en', 'index.html'), pages['en'])
-    _write(os.path.join(out, 'sitemap.xml'), sitemap(site))
+    for rel, text in blog_files.items():
+        _write(os.path.join(out, *rel.split('/')), text)
+    _write(os.path.join(out, 'sitemap.xml'), sitemap(site, blog_urls))
     _write(os.path.join(out, 'robots.txt'), robots(site, production))
+    for note in blog_notes:
+        print(f'guides: {note}')
 
     _, omitted = gate(contents['ar'], production=True)
     if omitted:

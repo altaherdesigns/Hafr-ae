@@ -1,0 +1,18 @@
+<a class="skip" href="#content">{{c.ui.skip}}</a>
+
+<header class="hd" data-hd data-tone="dark">
+  <div class="hd__in">
+    <a class="hd__home" href="/en/">{{> lockup}}</a>
+    <nav class="hd__nav" aria-label="{{c.ui.nav_label|attr}}">
+      <a href="/en/#make">{{c.nav.make}}</a>
+      <a href="/en/#built">{{c.nav.built}}</a>
+      <a href="/en/#name">{{c.nav.name}}</a>
+      <a href="/en/blog/" aria-current="{{nav_current}}">{{s.post.guides}}</a>
+      <a href="/en/#start">{{c.nav.start}}</a>
+    </nav>
+    <div class="hd__end">
+      <a class="hd__lang" href="{{switch.href}}" hreflang="{{switch.lang}}" lang="{{switch.lang}}" dir="{{switch.dir}}">{{switch.label}}</a>
+      <a class="btn btn--line" href="#start">{{c.nav.begin}}</a>
+    </div>
+  </div>
+</header>

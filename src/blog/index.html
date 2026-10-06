@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+{{> blog_head}}
+</head>
+<body class="guide-page">
+{{> blog_header}}
+
+<main id="main">
+  <header class="post-hero post-hero--index" data-surface="dark">
+    <div class="wrap post-hero__in">
+      <div class="post-hero__text">
+        <p class="post-hero__label">{{index.label}}</p>
+        <h1 class="post-hero__title" id="index-h">{{index.h1}}</h1>
+        <p class="post-hero__dek">{{index.intro}}</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="guides" id="content" data-surface="light" aria-labelledby="list-h">
+    <div class="wrap">
+      <h2 class="vh" id="list-h">{{index.list_label}}</h2>
+      {{#if index.has_posts}}<ol class="rows guide-rows guide-rows--index">
+        {{#each index.posts}}<li class="row guide-row"{{#if .draft}} data-draft{{/if}}>
+          <span class="row__num"><bdi>{{.num}}</bdi></span>
+          <div class="guide-row__main">
+            <h3 class="row__name"><a href="{{.url}}">{{.title}}</a>{{#if .draft}} <span class="badge">{{s.post.draft}}</span>{{/if}}</h3>
+            <p class="row__desc">{{.dek}}</p>
+          </div>
+          <p class="guide-row__meta"><time datetime="{{.date_iso}}">{{.date_human}}</time><span>{{.read}}</span></p>
+        </li>
+        {{/each}}</ol>{{/if}}
+      {{#if index.empty_state}}<p class="guides__empty">{{index.empty}}</p>{{/if}}
+    </div>
+  </section>
+
+  {{> blog_cta}}
+</main>
+
+{{> blog_footer}}
+</body>
+</html>
