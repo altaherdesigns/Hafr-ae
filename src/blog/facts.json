@@ -1,0 +1,5 @@
+{
+  "_note": "Values that guides may quote as {{TOKEN}}. Change a figure here and every guide updates on the next build. A null value fails the build wherever the token is used.",
+  "PRICE_FROM": "AED 299",
+  "LEAD_TIME_DAYS": "7 to 14"
+}

@@ -157,6 +157,8 @@ def page_context(lang, site, content, *, production, head_js, importmap, fonts):
         'og_locale_alt': LANGS[other]['og_locale'],
         'og_image': url + '/assets/img/og-image.png',
         'switch': info['switch'],
+        # The guides are in English: linked from the English menu, and from both footers.
+        'guides': {'href': '/en/blog/', 'label': 'Guides', 'in_header': lang == 'en'},
         'fonts': fonts,
         'jsonld': jsonld(site),
         'head_js': head_js,
@@ -171,11 +173,15 @@ def page_context(lang, site, content, *, production, head_js, importmap, fonts):
     }
 
 
-def sitemap(site):
+def sitemap(site, extra=()):
+    """The two landing pages (with their language alternates), then any extra
+    (url, lastmod) entries such as the guides, which exist in English only."""
     url = site['siteUrl']
     pages = [(url + '/', 'ar'), (url + '/en/', 'en')]
     links = ''.join(f'<xhtml:link rel="alternate" hreflang="{l}" href="{u}"/>' for u, l in pages)
     body = ''.join(f'<url><loc>{u}</loc>{links}</url>' for u, _ in pages)
+    body += ''.join(f'<url><loc>{u}</loc>' + (f'<lastmod>{m}</lastmod>' if m else '') + '</url>'
+                    for u, m in extra)
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
             'xmlns:xhtml="http://www.w3.org/1999/xhtml">' + body + '</urlset>\n')

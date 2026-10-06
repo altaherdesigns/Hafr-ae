@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+{{> blog_head}}
+</head>
+<body class="guide-page">
+{{> blog_header}}
+
+<main id="main">
+<article class="post" aria-labelledby="post-h"{{#if post.draft}} data-draft{{/if}}>
+  <header class="post-hero" data-surface="dark">
+    <div class="wrap post-hero__in">
+      <nav class="crumbs" aria-label="{{s.post.crumbs|attr}}">
+        <a href="/en/">{{s.post.home}}</a><span class="crumbs__cut" aria-hidden="true"></span><a href="/en/blog/">{{s.post.guides}}</a>
+      </nav>
+      <div class="post-hero__text">
+        <p class="post-hero__label">{{s.post.guide}} <bdi>{{post.num}}</bdi>{{#if post.draft}} <span class="badge">{{s.post.draft}}</span>{{/if}}</p>
+        <h1 class="post-hero__title" id="post-h">{{post.title}}</h1>
+        <p class="post-hero__dek">{{post.dek}}</p>
+        <dl class="facts">
+          <div><dt>{{s.post.published}}</dt><dd><time datetime="{{post.date_iso}}">{{post.date_human}}</time></dd></div>
+          {{#if post.show_updated}}<div><dt>{{s.post.updated}}</dt><dd><time datetime="{{post.updated_iso}}">{{post.updated_human}}</time></dd></div>
+          {{/if}}<div><dt>{{s.post.reading}}</dt><dd>{{post.minutes}} {{s.post.minutes}}</dd></div>
+        </dl>
+      </div>
+      <div class="slice" aria-hidden="true"><span class="slice__a">{{post.num}}</span><span class="slice__b">{{post.num}}</span><span class="slice__kerf"></span></div>
+    </div>
+  </header>
+
+  <div class="post-body" data-surface="light">
+    <div class="wrap post-body__grid">
+      {{#if post.has_toc}}<nav class="toc" aria-label="{{s.post.toc|attr}}">
+        <details class="toc__box" data-toc>
+          <summary class="toc__label">{{s.post.toc}}</summary>
+          <ol class="toc__list">
+            {{#each post.toc}}<li><a href="#{{.id}}">{{.text}}</a></li>
+            {{/each}}</ol>
+        </details>
+      </nav>{{/if}}
+      <div class="prose" id="content">
+{{post.body|raw}}
+      </div>
+    </div>
+  </div>
+</article>
+
+{{#if post.has_related}}<section class="sec sec--sand more" data-surface="light" aria-labelledby="more-h">
+  <div class="wrap">
+    <h2 class="more__title" id="more-h">{{s.post.more}}</h2>
+    <ol class="rows guide-rows">
+      {{#each post.related}}<li class="row guide-row">
+        <span class="row__num"><bdi>{{.num}}</bdi></span>
+        <div class="guide-row__main">
+          <h3 class="row__name"><a href="{{.url}}">{{.title}}</a></h3>
+          <p class="row__desc">{{.dek}}</p>
+        </div>
+      </li>
+      {{/each}}</ol>
+  </div>
+</section>{{/if}}
+
+{{> blog_cta}}
+</main>
+
+{{> blog_footer}}
+</body>
+</html>

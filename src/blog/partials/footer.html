@@ -1,0 +1,29 @@
+<footer class="ft" data-surface="dark">
+  <div class="wrap ft__grid">
+    <div class="ft__brand">
+      <a class="ft__logo" href="/en/">{{> lockup}}</a>
+      <p class="ft__name">{{c.footer.brand|html}}</p>
+      <p class="ft__tag">{{c.footer.tagline}}</p>
+    </div>
+    <nav class="ft__nav" aria-label="{{s.post.site_nav|attr}}">
+      <a href="/en/#make">{{c.nav.make}}</a>
+      <a href="/en/#built">{{c.nav.built}}</a>
+      <a href="/en/#name">{{c.nav.name}}</a>
+      <a href="/en/blog/">{{s.post.guides}}</a>
+      <a href="/en/#start">{{c.nav.start}}</a>
+    </nav>
+    <div class="ft__contact">
+      <a href="{{wa_url|attr}}" target="_blank" rel="noopener">{{c.ui.whatsapp}}</a>
+      {{#if has_instagram}}<a href="{{instagram_url|attr}}" target="_blank" rel="noopener">{{c.ui.instagram}}</a>{{/if}}
+      <a href="/en/blog/feed.xml">{{s.post.feed}}</a>
+      <a href="{{switch.href}}" hreflang="{{switch.lang}}" lang="{{switch.lang}}" dir="{{switch.dir}}">{{switch.label}}</a>
+    </div>
+  </div>
+  <div class="wrap ft__base">
+    <details class="maker">
+      <summary><span class="maker__mark">{{> mark}}</span><span class="maker__q">{{c.footer.maker_q}}</span></summary>
+      <p class="maker__text">{{c.footer.maker_text}} <a href="https://altaherdesign.ae" target="_blank" rel="noopener">{{c.footer.maker_link}}<span class="vh"> {{c.footer.new_tab}}</span></a>.</p>
+    </details>
+    <p class="ft__fine">{{c.footer.fine}} <a href="https://altaherdesign.ae" target="_blank" rel="noopener">{{c.footer.fine_link}}<span class="vh"> {{c.footer.new_tab}}</span></a>{{#if c.footer.fine_after}} {{c.footer.fine_after}}{{/if}} <span aria-hidden="true">·</span> {{c.footer.copyright}}</p>
+  </div>
+</footer>

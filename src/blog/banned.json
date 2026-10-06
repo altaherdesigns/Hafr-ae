@@ -1,0 +1,28 @@
+{
+  "_note": "The guides' rulebook (src/blog/). Guides may name materials and grades, say 'name plate' and quote dated market prices; the landing page's stricter list (src/banned.json) does not apply here. These stay banned in guides: the AVOID words, warranty and lifetime claims, durations of the form 'N years', a founding year, leftover tokens and alt-text notes.",
+  "latin": [
+    "luxury",
+    "luxurious",
+    "premium",
+    "exclusive",
+    "elegant",
+    "warranty",
+    "warranted",
+    "guarantee",
+    "guaranteed",
+    "lifetime",
+    "Alt text"
+  ],
+  "arabic": [
+    "فاخر",
+    "فخم",
+    "حصري",
+    "ضمان"
+  ],
+  "patterns": [
+    "\\d+\\s*(year|years|yr|yrs|سنة|سنوات|عام|عاماً)\\b",
+    "\\bsince\\s+(19|20)\\d\\d\\b",
+    "منذ\\s*\\d{4}",
+    "\\{\\{"
+  ]
+}
