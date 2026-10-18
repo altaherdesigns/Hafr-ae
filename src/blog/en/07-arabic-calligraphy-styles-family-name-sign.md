@@ -3,7 +3,6 @@ title: "Arabic Calligraphy Styles for a Villa Family-Name Sign"
 slug: arabic-calligraphy-styles-family-name-sign
 meta_description: "Thuluth, Naskh, Diwani, Kufic or Ruq'ah? A guide to Arabic calligraphy styles for villa name signs, and what changes when the letters are cut from metal."
 date: 2026-10-08
-draft: true
 primary_keyword: Arabic villa name sign
 secondary_keywords: [arabic calligraphy sign, custom name sign, laser cut metal sign, metal name signs]
 arabic_keyword: "انواع الخط العربي للوحة العائلة"
@@ -50,7 +49,7 @@ Calligraphy was designed for pen and ink. Metal cutting has its own rules, and t
 
 **Dots and diacritics.** Dots are small separate pieces. Decide whether they are cut openings, raised pieces or bridges. Without a plan, the dots may fall out or float.
 
-**Sharp inner corners.** Lasers and CNC routers leave a small radius in inner corners. Design with that in mind.
+**Sharp inner corners.** A CNC router cannot cut a perfectly sharp inside corner, because its bit is round, and lasers and plasma leave a slight radius too. Fine points in calligraphy may come out a little softer than on paper.
 
 None of these are reasons to avoid calligraphy. They are reasons to work with someone who has cut Arabic before and who will show you a proof. See [how to tell laser-cut from printed signs](/blog/laser-cut-vs-printed-metal-signs/) for what a good cut should look like.
 

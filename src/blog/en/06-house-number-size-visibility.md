@@ -3,7 +3,6 @@ title: "House Number Signs: Size, Font and Night Visibility"
 slug: house-number-size-visibility
 meta_description: "How big should villa house numbers be? A simple distance rule, font and contrast tips, and how to keep numbers readable at night."
 date: 2026-10-07
-draft: true
 primary_keyword: house number plate
 secondary_keywords: [house number sign, metal house numbers, backlit house numbers, illuminated house number, door number plate]
 arabic_keyword: "وضوح رقم الفيلا ليلا"
@@ -77,7 +76,7 @@ If you are choosing, [backlit vs non-backlit](/blog/backlit-vs-non-backlit-villa
 
 ## Cut metal numbers
 
-Cut or fabricated metal digits last well outdoors. Choose the material to match the environment: 316 stainless near the sea, or powder-coated aluminium and steel for colour. Our [material guide](/blog/best-material-villa-name-plate-uae/) explains the differences. A few cutting details help too: digits like 0, 6, 8 and 9 have closed loops that need small bridges if cut from a single sheet, or they can be made as separate raised pieces mounted on stand-offs.
+Cut or fabricated metal digits last well outdoors. Choose the material to match the environment: 316 stainless, which matters most near the sea, or powder-coated aluminium and steel for colour. Our [material guide](/blog/best-material-villa-name-plate-uae/) explains the differences. A few cutting details help too: digits like 0, 6, 8 and 9 have closed loops that need small bridges if cut from a single sheet, or they can be made as separate raised pieces mounted on stand-offs.
 
 ## What your community requires
 
