@@ -32,6 +32,7 @@
 <meta property="og:image:alt" content="{{c.stage.still_alt|attr}}">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{{jsonld|raw}}</script>
+<script type="application/ld+json">{{gallery_jsonld|raw}}</script>
 <script type="module" src="{{base}}assets/js/site.js"></script>
 </head>
 <body>
@@ -42,6 +43,7 @@
     <a class="hd__home" href="#stage">{{> lockup}}</a>
     <nav class="hd__nav" aria-label="{{c.ui.nav_label|attr}}">
       <a href="#make">{{c.nav.make}}</a>
+      <a href="#ideas">{{c.nav.ideas}}</a>
       <a href="#built">{{c.nav.built}}</a>
       <a href="#name">{{c.nav.name}}</a>
       {{#if guides.in_header}}<a href="{{guides.href}}">{{guides.label}}</a>
@@ -91,12 +93,45 @@
   </div>
 </section>
 
+<section class="sec sec--sand" id="ideas" data-surface="light" aria-labelledby="ideas-h">
+  <div class="wrap">
+    <div class="sec__head sec__head--wide" data-reveal>
+      <p class="eyebrow"><bdi>02</bdi></p>
+      <h2 class="h2" id="ideas-h">{{c.ideas.title}}</h2>
+      <p class="lede">{{c.ideas.intro}}</p>
+    </div>
+    <ul class="ideas" data-ideas>
+      {{#each ideas}}<li class="idea" data-reveal>
+        <figure class="idea__fig">
+          <a class="idea__open" href="{{.large|attr}}" data-idea-open aria-label="{{c.ideas.open|attr}}: {{.name|attr}}">
+            <picture>
+              <source type="image/webp" srcset="{{.srcset|attr}}" sizes="(max-width: 700px) calc(100vw - 32px), (max-width: 1280px) 46vw, 600px">
+              <img src="{{.src|attr}}" width="{{.w}}" height="{{.h}}" alt="{{.alt|attr}}" loading="lazy" decoding="async">
+            </picture>
+          </a>
+          <figcaption class="idea__cap">
+            <span class="idea__num"><bdi>{{@nn}}</bdi></span>
+            <span class="idea__name">{{.name}}</span>
+            <a class="idea__ask" href="{{.wa_url|attr}}" target="_blank" rel="noopener" data-idea-ask>{{c.ideas.ask}}<span class="vh"> {{c.footer.new_tab}}</span></a>
+          </figcaption>
+        </figure>
+      </li>
+      {{/each}}</ul>
+    <p class="aside ideas__note">{{c.ideas.note}}</p>
+  </div>
+  <dialog class="lb" data-lb aria-labelledby="lb-cap">
+    <form method="dialog" class="lb__bar"><button class="lb__close" value="close">{{c.ideas.close}}</button></form>
+    <img class="lb__img" data-lb-img alt="">
+    <p class="lb__cap"><span id="lb-cap" data-lb-cap></span> <a class="btn btn--solid lb__ask" data-lb-ask href="#start" target="_blank" rel="noopener">{{c.ideas.ask}}</a></p>
+  </dialog>
+</section>
+
 <div class="kerf" aria-hidden="true"></div>
 
 <section class="sec sec--night" id="built" data-surface="dark" aria-labelledby="built-h">
   <div class="wrap">
     <div class="sec__head sec__head--wide" data-reveal>
-      <p class="eyebrow"><bdi>02</bdi></p>
+      <p class="eyebrow"><bdi>03</bdi></p>
       <h2 class="h2" id="built-h">{{c.built.title}}</h2>
       <p class="lede">{{c.built.intro}}</p>
     </div>
@@ -116,7 +151,7 @@
 <section class="sec sec--ivory" id="name" data-surface="light" aria-labelledby="name-h">
   <div class="wrap sec__grid sec__grid--media">
     <div class="sec__head" data-reveal>
-      <p class="eyebrow"><bdi>03</bdi></p>
+      <p class="eyebrow"><bdi>04</bdi></p>
       <h2 class="h2" id="name-h">{{c.name.title}}</h2>
       <p class="lede">{{c.name.intro}}</p>
       <figure class="frame frame--proof">{{> proof}}</figure>
@@ -134,7 +169,7 @@
   <div class="wrap sec__grid sec__grid--media">
     <figure class="frame frame--night" data-reveal>{{> night}}</figure>
     <div class="sec__head" data-reveal>
-      <p class="eyebrow"><bdi>04</bdi></p>
+      <p class="eyebrow"><bdi>05</bdi></p>
       <h2 class="h2" id="dark-h">{{c.dark.title}}</h2>
       <p class="lede">{{c.dark.intro}}</p>
       {{#if c.dark.show_lighting}}<p class="body"{{#if c.dark.pending}} data-pending{{/if}}>{{c.dark.lighting}}{{#if c.dark.pending}} <span class="badge">{{c.ui.pending}}</span>{{/if}}</p>{{/if}}
@@ -146,7 +181,7 @@
 <section class="sec sec--sand" id="kit" data-surface="light" aria-labelledby="kit-h">
   <div class="wrap sec__grid">
     <div class="sec__head" data-reveal>
-      <p class="eyebrow"><bdi>05</bdi></p>
+      <p class="eyebrow"><bdi>06</bdi></p>
       <h2 class="h2" id="kit-h">{{c.kit.title}}</h2>
       {{#if c.kit.has_items}}<p class="lede">{{c.kit.intro}}</p>{{/if}}
       {{#if c.kit.show_fallback}}<p class="lede">{{c.kit.fallback}}</p>{{/if}}
@@ -164,7 +199,7 @@
 <section class="sec sec--night sec--start" id="start" data-surface="dark" aria-labelledby="start-h">
   <div class="wrap sec__grid">
     <div class="sec__head" data-reveal>
-      <p class="eyebrow"><bdi>06</bdi></p>
+      <p class="eyebrow"><bdi>07</bdi></p>
       <h2 class="h2 h2--xl" id="start-h">{{c.start.title}}</h2>
     </div>
     <div class="sec__body">
@@ -190,6 +225,7 @@
     </div>
     <nav class="ft__nav" aria-label="{{c.ui.footer_nav_label|attr}}">
       <a href="#make">{{c.nav.make}}</a>
+      <a href="#ideas">{{c.nav.ideas}}</a>
       <a href="#built">{{c.nav.built}}</a>
       <a href="#name">{{c.nav.name}}</a>
       <a href="#start">{{c.nav.start}}</a>

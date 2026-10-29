@@ -15,7 +15,7 @@ LANGS = {
 }
 
 # Strings rendered in the Arabic display face (Amiri); the font is subset to their characters.
-DISPLAY_KEYS = ['stage.headline', 'stage.captions', 'make.title', 'built.title', 'name.title',
+DISPLAY_KEYS = ['stage.headline', 'stage.captions', 'make.title', 'ideas.title', 'ideas.items', 'built.title', 'name.title',
                 'dark.title', 'kit.title', 'start.title', 'name.proof.name', 'dark.scene_label']
 
 FONT_CSS = 'https://fonts.googleapis.com/css2?'
@@ -72,6 +72,58 @@ def jsonld(site):
     }
     if site.get('instagram'):
         data['sameAs'] = [f"https://www.instagram.com/{site['instagram']}"]
+    return json.dumps(data, ensure_ascii=False).replace('</', '<\\/')
+
+
+IDEA_WIDTHS = (640, 1024, 1408)
+
+
+def ideas(content, images, site, base, lang):
+    """Join each Ideas caption (content file) with its image (src/ideas.json), by position."""
+    items = content['ideas']['items']
+    if len(items) != len(images):
+        raise ValueError(f'ideas: {len(items)} captions but {len(images)} images in src/ideas.json')
+    out = []
+    for i, (item, img) in enumerate(zip(items, images)):
+        stem = f"assets/img/ideas/{img['slug']}"
+        msg = content['ideas']['wa_message'].replace('{style}', item['name']).replace('{n}', str(i + 1))
+        out.append({
+            'name': item['name'], 'alt': item['alt'], 'w': img['w'], 'h': img['h'],
+            'src': f'{base}{stem}-1024.jpg',
+            'srcset': ', '.join(f'{base}{stem}-{w}.webp {w}w' for w in IDEA_WIDTHS),
+            'large': f'{base}{stem}-1408.webp',
+            'abs': f"{site['siteUrl']}/{stem}-1408.webp",
+            'thumb': f"{site['siteUrl']}/{stem}-640.webp",
+            'wa_url': whatsapp_url(site.get('whatsapp'), msg),
+        })
+    return out
+
+
+def gallery_jsonld(site, content, items, page_url, lang):
+    """ImageGallery for the Ideas section: names, captions and credit for image search."""
+    org = {'@id': f"{site['siteUrl']}/#org"}
+    data = {
+        '@context': 'https://schema.org',
+        '@type': 'ImageGallery',
+        '@id': f'{page_url}#ideas',
+        'url': f'{page_url}#ideas',
+        'name': content['ideas']['title'],
+        'description': content['ideas']['intro'],
+        'inLanguage': lang,
+        'publisher': org,
+        'associatedMedia': [{
+            '@type': 'ImageObject',
+            'contentUrl': it['abs'],
+            'thumbnailUrl': it['thumb'],
+            'width': it['w'], 'height': it['h'],
+            'encodingFormat': 'image/webp',
+            'name': it['name'],
+            'caption': it['alt'],
+            'creator': org,
+            'creditText': 'Hafr',
+            'copyrightNotice': f'© {FOUNDED} Hafr',
+        } for it in items],
+    }
     return json.dumps(data, ensure_ascii=False).replace('</', '<\\/')
 
 
@@ -139,11 +191,12 @@ def importmap(cdn=DEFAULT_CDN, version=THREE_VERSION):
     }})
 
 
-def page_context(lang, site, content, *, production, head_js, importmap, fonts):
+def page_context(lang, site, content, *, production, head_js, importmap, fonts, images=()):
     info = LANGS[lang]
     gated, _ = gate(content, production)
     url = site['siteUrl']
     other = 'en' if lang == 'ar' else 'ar'
+    idea_items = ideas(gated, list(images), site, info['base'], lang)
     return {
         'lang': lang,
         'dir': info['dir'],
@@ -161,6 +214,8 @@ def page_context(lang, site, content, *, production, head_js, importmap, fonts):
         'guides': {'href': '/en/blog/', 'label': 'Guides', 'in_header': lang == 'en'},
         'fonts': fonts,
         'jsonld': jsonld(site),
+        'ideas': idea_items,
+        'gallery_jsonld': gallery_jsonld(site, gated, idea_items, url + info['path'], lang),
         'head_js': head_js,
         'importmap': importmap,
         'wa_url': whatsapp_url(site.get('whatsapp'), gated['start']['wa_message']),
@@ -173,18 +228,21 @@ def page_context(lang, site, content, *, production, head_js, importmap, fonts):
     }
 
 
-def sitemap(site, extra=()):
-    """The two landing pages (with their language alternates), then any extra
-    (url, lastmod) entries such as the guides, which exist in English only."""
+def sitemap(site, extra=(), images=()):
+    """The two landing pages (with their language alternates and the Ideas images),
+    then any extra (url, lastmod) entries such as the guides, which exist in English only."""
     url = site['siteUrl']
     pages = [(url + '/', 'ar'), (url + '/en/', 'en')]
     links = ''.join(f'<xhtml:link rel="alternate" hreflang="{l}" href="{u}"/>' for u, l in pages)
-    body = ''.join(f'<url><loc>{u}</loc>{links}</url>' for u, _ in pages)
+    pics = ''.join(f"<image:image><image:loc>{url}/assets/img/ideas/{img['slug']}-1408.webp</image:loc></image:image>"
+                   for img in images)
+    body = ''.join(f'<url><loc>{u}</loc>{links}{pics}</url>' for u, _ in pages)
     body += ''.join(f'<url><loc>{u}</loc>' + (f'<lastmod>{m}</lastmod>' if m else '') + '</url>'
                     for u, m in extra)
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
-            'xmlns:xhtml="http://www.w3.org/1999/xhtml">' + body + '</urlset>\n')
+            'xmlns:xhtml="http://www.w3.org/1999/xhtml" '
+            'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">' + body + '</urlset>\n')
 
 
 def robots(site, production):

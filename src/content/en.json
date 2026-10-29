@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Hafr — Your family name, carved to stay",
-    "description": "Exterior signage cut in metal for UAE villas: house numbers, family names in Arabic, flag and family-crest pieces, gate and boundary-wall panels, and plot-entrance monuments."
+    "title": "Arabic Villa Name Signs & House Numbers, UAE | Hafr",
+    "description": "Family names in Arabic calligraphy and house numbers, cut in metal for UAE villa entrances. See ten ideas, approve your proof, then we cut."
   },
   "ui": {
     "skip": "Skip to content",
@@ -14,6 +14,7 @@
   },
   "nav": {
     "make": "What we make",
+    "ideas": "Ideas",
     "built": "Craft",
     "name": "The name",
     "start": "Contact",
@@ -22,20 +23,90 @@
   "stage": {
     "headline": "Your family name, carved to stay.",
     "skip": "Skip to what we make",
-    "captions": ["One cut.", "Lifted off the wall.", "Fixed to stay."],
+    "captions": [
+      "One cut.",
+      "Lifted off the wall.",
+      "Fixed to stay."
+    ],
     "still_alt": "Hafr"
   },
   "make": {
     "title": "What we make",
     "intro": "Pieces made for your wall: measured to it, set in the script you choose, and built to stay at the entrance to your home.",
     "items": [
-      {"name": "House numbers", "desc": "Cut metal numerals, raised off the wall, in Arabic digits, Latin digits or both."},
-      {"name": "Family and owner names", "desc": "Your family name in Arabic, with a Latin transliteration if you want one, checked and approved before anything is cut."},
-      {"name": "Flag and family-crest pieces", "desc": "Cut crests and flag pieces for the gate, with flag poles."},
-      {"name": "Gate and boundary-wall panels", "desc": "Cut panels and screens made to the exact measurements of your boundary wall."},
-      {"name": "Plot-entrance monuments", "desc": "Freestanding monuments at the entrance to the plot, installed by our team."}
+      {
+        "name": "House numbers",
+        "desc": "Cut metal numerals, raised off the wall, in Arabic digits, Latin digits or both."
+      },
+      {
+        "name": "Family and owner names",
+        "desc": "Your family name in Arabic, with a Latin transliteration if you want one, checked and approved before anything is cut."
+      },
+      {
+        "name": "Flag and family-crest pieces",
+        "desc": "Cut crests and flag pieces for the gate, with flag poles."
+      },
+      {
+        "name": "Gate and boundary-wall panels",
+        "desc": "Cut panels and screens made to the exact measurements of your boundary wall."
+      },
+      {
+        "name": "Plot-entrance monuments",
+        "desc": "Freestanding monuments at the entrance to the plot, installed by our team."
+      }
     ],
     "also": "From the same workshop: cut wall art for interiors."
+  },
+  "ideas": {
+    "title": "Ideas to start from",
+    "intro": "Ten settings to point to when you message us. Yours is drawn to your own name and your own wall.",
+    "note": "Illustrative renders. Your proof shows your actual name, at true size.",
+    "open": "View larger",
+    "close": "Close",
+    "ask": "Start with this style",
+    "wa_message": "Hello Hafr, I'd like a piece for the entrance to my home in the style “{style}” (idea {n}).",
+    "items": [
+      {
+        "name": "Thuluth, in low sun",
+        "alt": "Al Mansoori family name in raised Arabic Thuluth calligraphy, standing off a sand plaster villa wall in low sun"
+      },
+      {
+        "name": "Halo-lit at night",
+        "alt": "Al Kaabi family name in cut Arabic letters, lit from behind with a warm halo on a dark villa wall at night"
+      },
+      {
+        "name": "Kufic on stone",
+        "alt": "Al Shamsi in bold Kufic letters with a weathered rust finish, pinned to a dry-stacked stone boundary wall"
+      },
+      {
+        "name": "Diwani on wood",
+        "alt": "Al Shamsi in Diwani calligraphy, raised letters on a dark wood backing, fixed to a stone wall at dusk"
+      },
+      {
+        "name": "Gold on limestone",
+        "alt": "Al Mansoori in gold-finish cut Arabic letters on a travertine limestone pillar at a villa entrance"
+      },
+      {
+        "name": "Set into the gate",
+        "alt": "Al Kaabi in gold Arabic calligraphy set into a black gate screen with a geometric lattice pattern"
+      },
+      {
+        "name": "Arabic and English",
+        "alt": "Bilingual villa sign reading Al Shamsi in Arabic and English, cut into a brushed panel on a white rendered wall"
+      },
+      {
+        "name": "After the cut",
+        "alt": "Gloved hand holding the cut Arabic letters of Al Dhahiri in a workshop, before finishing"
+      },
+      {
+        "name": "Name and number",
+        "alt": "Al Dhahiri and house number 58 cut through a rust-finish panel with a green line, on a stone villa wall"
+      },
+      {
+        "name": "Number in a medallion",
+        "alt": "Al Dhahiri in raised Arabic letters on a walnut wood panel, with house number 63 in a green medallion"
+      }
+    ]
   },
   "built": {
     "title": "Built to stay outside",
@@ -43,13 +114,41 @@
     "col_fail": "What fails here",
     "col_build": "How Hafr builds",
     "rows": [
-      {"status": "pending", "fail": "Printed faces that chalk and fade in the sun", "build": "Finishes chosen to hold their colour in Gulf sun"},
-      {"status": "pending", "fail": "Thin sheets that bend in the heat and lift at the fixings", "build": "Thickness matched to the size of each piece"},
-      {"status": "pending", "fail": "Metal that rusts near the sea and stains the wall", "build": "Metal chosen by the plot's distance from the sea"},
-      {"status": "pending", "fail": "Fixings that rust before the sign does", "build": "Fixings matched to the piece, so they don't stain the wall"},
-      {"status": "pending", "fail": "Lights that cook in a 50°C summer and fail one letter at a time", "build": "Sealed lighting rated for 50°C, with a driver that can be reached"},
-      {"status": "pending", "fail": "Flush mounting that traps water and stains a rectangle on the wall", "build": "Mounted 15 to 25 mm off the wall, for drainage, air and a true shadow line"},
-      {"status": "pending", "fail": "Raw, sharp cut edges", "build": "Every edge deburred and rounded"}
+      {
+        "status": "pending",
+        "fail": "Printed faces that chalk and fade in the sun",
+        "build": "Finishes chosen to hold their colour in Gulf sun"
+      },
+      {
+        "status": "pending",
+        "fail": "Thin sheets that bend in the heat and lift at the fixings",
+        "build": "Thickness matched to the size of each piece"
+      },
+      {
+        "status": "pending",
+        "fail": "Metal that rusts near the sea and stains the wall",
+        "build": "Metal chosen by the plot's distance from the sea"
+      },
+      {
+        "status": "pending",
+        "fail": "Fixings that rust before the sign does",
+        "build": "Fixings matched to the piece, so they don't stain the wall"
+      },
+      {
+        "status": "pending",
+        "fail": "Lights that cook in a 50°C summer and fail one letter at a time",
+        "build": "Sealed lighting rated for 50°C, with a driver that can be reached"
+      },
+      {
+        "status": "pending",
+        "fail": "Flush mounting that traps water and stains a rectangle on the wall",
+        "build": "Mounted 15 to 25 mm off the wall, for drainage, air and a true shadow line"
+      },
+      {
+        "status": "pending",
+        "fail": "Raw, sharp cut edges",
+        "build": "Every edge deburred and rounded"
+      }
     ],
     "fallback": "Every piece is specified for 45 to 50°C summers, intense sun, coastal salt, seasonal humidity and winter sand."
   },
@@ -57,12 +156,30 @@
     "title": "The name is the piece",
     "intro": "Arabic letters change shape with their position, and one wrong form is obvious to everyone who passes your gate. So nothing reaches the machine until you have approved it in writing.",
     "steps": [
-      {"title": "You type the name", "text": "In Arabic, yourself. We never transcribe it from a voice note."},
-      {"title": "You choose a setting", "text": "Two or three treatments of your actual name, not a sample."},
-      {"title": "You see it on your wall", "text": "At true proportions with dimensions marked, on a photo of your own wall where possible."},
-      {"title": "You sign it off", "text": "Your written approval is dated and kept with the job."},
-      {"title": "A second reading", "text": "Another Arabic reader checks the proof against the text you sent, before anything is cut."},
-      {"title": "Cut, finished, photographed", "text": "The file is locked, then the piece is cut, finished and photographed before it ships."}
+      {
+        "title": "You type the name",
+        "text": "In Arabic, yourself. We never transcribe it from a voice note."
+      },
+      {
+        "title": "You choose a setting",
+        "text": "Two or three treatments of your actual name, not a sample."
+      },
+      {
+        "title": "You see it on your wall",
+        "text": "At true proportions with dimensions marked, on a photo of your own wall where possible."
+      },
+      {
+        "title": "You sign it off",
+        "text": "Your written approval is dated and kept with the job."
+      },
+      {
+        "title": "A second reading",
+        "text": "Another Arabic reader checks the proof against the text you sent, before anything is cut."
+      },
+      {
+        "title": "Cut, finished, photographed",
+        "text": "The file is locked, then the piece is cut, finished and photographed before it ships."
+      }
     ],
     "proof": {
       "label": "Proof 01 · true proportions",

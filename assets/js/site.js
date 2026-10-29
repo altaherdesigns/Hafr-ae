@@ -152,8 +152,36 @@ function initStage() {
   reduce.addEventListener('change', () => { if (reduce.matches && !H.override) fallback('reduced-motion'); });
 }
 
+// Ideas: a tap on a picture opens it larger in a dialog, with the same WhatsApp
+// link as its card. Without JS (or without <dialog>) the link opens the image.
+function initIdeas() {
+  const lb = document.querySelector('[data-lb]');
+  if (!lb || typeof lb.showModal !== 'function') return;
+  const img = lb.querySelector('[data-lb-img]');
+  const cap = lb.querySelector('[data-lb-cap]');
+  const ask = lb.querySelector('[data-lb-ask]');
+  document.querySelectorAll('[data-idea-open]').forEach(link => {
+    link.addEventListener('click', e => {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button > 0) return;
+      e.preventDefault();
+      const fig = link.closest('figure');
+      const thumb = link.querySelector('img');
+      img.src = link.getAttribute('href');
+      img.alt = thumb.alt;
+      img.setAttribute('width', thumb.getAttribute('width'));
+      img.setAttribute('height', thumb.getAttribute('height'));
+      cap.textContent = fig.querySelector('.idea__name').textContent;
+      ask.href = fig.querySelector('[data-idea-ask]').href;
+      lb.showModal();
+    });
+  });
+  lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
+  lb.addEventListener('close', () => { img.removeAttribute('src'); });
+}
+
 initHeader();
 initReveals();
+initIdeas();
 initStage();
 
 // Development builds only: ?at=<section id> jumps straight to a section (for screenshots).
