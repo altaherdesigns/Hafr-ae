@@ -77,6 +77,7 @@ def main(argv=None):
         return fail(['--cdn is for development builds only'])
 
     site = json.loads(_read(args.site))
+    images = json.loads(_read(os.path.join(ROOT, 'src', 'ideas.json')))['images']
     contents = {lang: json.loads(_read(os.path.join(args.content, f'{lang}.json'))) for lang in ('ar', 'en')}
     errors = validate_site(site, production) + parity(contents['ar'], contents['en'])
     if errors:
@@ -101,9 +102,9 @@ def main(argv=None):
                 amiri_en = ''.join(ch for ch in amiri_text([contents['en']]) if '؀' <= ch <= 'ۿ')
                 fonts = font_links('en', amiri_en, cairo_text=arabic_chars(contents['en']) + 'عربي')
             ctx = page_context(lang, site, contents[lang], production=production,
-                               head_js=head_js, importmap=imap, fonts=fonts)
+                               head_js=head_js, importmap=imap, fonts=fonts, images=images)
             pages[lang] = render(template, ctx, partials=partials, dev=not production)
-    except RenderError as exc:
+    except (RenderError, ValueError) as exc:
         return fail([f'render: {exc}'])
 
     banned = load_banned(os.path.join(ROOT, 'src', 'banned.json'))
@@ -139,7 +140,7 @@ def main(argv=None):
     _write(os.path.join(out, 'en', 'index.html'), pages['en'])
     for rel, text in blog_files.items():
         _write(os.path.join(out, *rel.split('/')), text)
-    _write(os.path.join(out, 'sitemap.xml'), sitemap(site, blog_urls))
+    _write(os.path.join(out, 'sitemap.xml'), sitemap(site, blog_urls, images))
     _write(os.path.join(out, 'robots.txt'), robots(site, production))
     for note in blog_notes:
         print(f'guides: {note}')

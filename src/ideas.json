@@ -1,0 +1,55 @@
+{
+  "_note": "Images for the Ideas section (#ideas), in display order. Files live in assets/img/ideas/<slug>-{640,1024,1408}.webp plus <slug>-1024.jpg. Each entry pairs by position with ideas.items in src/content/ar.json and en.json. These are illustrative renders, not installed jobs: replace with real photos as they come in.",
+  "images": [
+    {
+      "slug": "al-mansoori-thuluth-arabic-villa-sign",
+      "w": 1408,
+      "h": 768
+    },
+    {
+      "slug": "al-kaabi-backlit-halo-arabic-name-sign",
+      "w": 1408,
+      "h": 768
+    },
+    {
+      "slug": "al-shamsi-kufic-arabic-sign-stone-wall",
+      "w": 1408,
+      "h": 768
+    },
+    {
+      "slug": "al-shamsi-diwani-arabic-sign-wood-backing",
+      "w": 1408,
+      "h": 768
+    },
+    {
+      "slug": "al-mansoori-gold-arabic-letters-limestone",
+      "w": 1408,
+      "h": 768
+    },
+    {
+      "slug": "al-kaabi-arabic-name-gate-screen",
+      "w": 1408,
+      "h": 768
+    },
+    {
+      "slug": "al-shamsi-bilingual-arabic-english-villa-sign",
+      "w": 1408,
+      "h": 768
+    },
+    {
+      "slug": "al-dhahiri-cut-arabic-letters-workshop",
+      "w": 1408,
+      "h": 768
+    },
+    {
+      "slug": "al-dhahiri-58-name-and-house-number-sign",
+      "w": 1408,
+      "h": 564
+    },
+    {
+      "slug": "al-dhahiri-63-house-number-medallion-sign",
+      "w": 1408,
+      "h": 564
+    }
+  ]
+}
