@@ -108,6 +108,100 @@
       }
     ]
   },
+  "try": {
+    "title": "See it on your wall",
+    "intro": "Take a photo of your gate or wall, type your family name, and place it where it will go. Try scripts and finishes, then send the picture to us.",
+    "open": "Try it on your wall",
+    "privacy": "Your photo stays on your phone. Nothing is uploaded until you choose to send it.",
+    "close": "Close",
+    "empty": "Start with a straight-on photo of the wall where the name will go.",
+    "take": "Take a photo",
+    "choose": "Choose a photo",
+    "sample": "Or try it on a sample wall",
+    "loading": "Loading the scripts…",
+    "hint": "Drag to move. Drag a corner to match the angle of your wall. Pinch or use the size slider to resize.",
+    "canvas_label": "Preview of your name on your wall. Drag to move it, drag a corner to match the wall's angle; arrow keys move it, plus and minus resize it.",
+    "name_label": "Family name, in Arabic",
+    "name_ph": "اكتب اسم العائلة",
+    "number_label": "House number",
+    "latin_label": "In English (optional)",
+    "latin_ph": "Al Mansoori",
+    "style_label": "Script",
+    "finish_label": "Finish",
+    "light_label": "Light",
+    "day": "Daylight",
+    "night": "Lit at night",
+    "size_label": "Size",
+    "send": "Send to Hafr",
+    "save": "Save picture",
+    "change": "Change photo",
+    "note": "A preview to help you choose. Your proof is drawn to your name, at true size, and checked before anything is cut.",
+    "placeholder": "اسمك",
+    "watermark": "hafr.ae · preview",
+    "file_name": "hafr-preview.jpg",
+    "wa_message": "Hello Hafr, here is my wall with a preview of {name} ({style}, {finish}). I'd like a proof.",
+    "attach": "(The picture is saved on my device. I'll attach it here.)",
+    "styles": [
+      {
+        "id": "naskh",
+        "label": "Naskh",
+        "default": true
+      },
+      {
+        "id": "kufi",
+        "label": "Kufic",
+        "default": false
+      },
+      {
+        "id": "ruqaa",
+        "label": "Ruqaa",
+        "default": false
+      },
+      {
+        "id": "modern",
+        "label": "Modern",
+        "default": false
+      },
+      {
+        "id": "bold",
+        "label": "Bold",
+        "default": false
+      }
+    ],
+    "finishes": [
+      {
+        "id": "gold",
+        "label": "Gold",
+        "default": true
+      },
+      {
+        "id": "silver",
+        "label": "Silver",
+        "default": false
+      },
+      {
+        "id": "black",
+        "label": "Black",
+        "default": false
+      },
+      {
+        "id": "rust",
+        "label": "Rust",
+        "default": false
+      },
+      {
+        "id": "white",
+        "label": "White",
+        "default": false
+      },
+      {
+        "id": "antique",
+        "label": "Antique",
+        "default": false
+      }
+    ],
+    "demo_alt": "Preview tool showing the family name Al Mansoori and house number 24 in gold Arabic letters, pinned at an angle onto a sand-coloured wall"
+  },
   "built": {
     "title": "Built to stay outside",
     "intro": "Gulf summers, sun, salt and humidity find every shortcut, so every piece is specified for what it will actually face.",

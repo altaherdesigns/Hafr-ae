@@ -126,12 +126,78 @@
   </dialog>
 </section>
 
+<section class="sec sec--ivory" id="try" data-surface="light" aria-labelledby="try-h">
+  <div class="wrap sec__grid sec__grid--media">
+    <div class="sec__head" data-reveal>
+      <p class="eyebrow"><bdi>03</bdi></p>
+      <h2 class="h2" id="try-h">{{c.try.title}}</h2>
+      <p class="lede">{{c.try.intro}}</p>
+      <p class="cta try__cta">
+        <a class="btn btn--solid" href="#try" data-try-open aria-haspopup="dialog">{{c.try.open}}</a>
+      </p>
+      <p class="aside">{{c.try.privacy}}</p>
+    </div>
+    <figure class="frame try__demo" data-reveal>
+      <a href="#try" data-try-open tabindex="-1"><picture>
+        <source type="image/webp" srcset="{{base}}assets/img/try/try-demo-800.webp 800w, {{base}}assets/img/try/try-demo-1060.webp 1060w" sizes="(max-width: 900px) calc(100vw - 32px), 600px">
+        <img src="{{base}}assets/img/try/try-demo-800.jpg" width="1060" height="729" alt="{{c.try.demo_alt|attr}}" loading="lazy" decoding="async">
+      </picture></a>
+    </figure>
+  </div>
+  <dialog class="tool" data-try aria-labelledby="tool-h" data-wa="{{wa_base|attr}}" data-msg="{{c.try.wa_message|attr}}" data-attach="{{c.try.attach|attr}}" data-mark="{{c.try.watermark|attr}}" data-placeholder="{{c.try.placeholder|attr}}" data-file="{{c.try.file_name|attr}}">
+    <div class="tool__bar">
+      <h2 class="tool__h" id="tool-h">{{c.try.title}}</h2>
+      <button type="button" class="tool__x" data-try-close>{{c.try.close}}</button>
+    </div>
+    <div class="tool__main">
+      <div class="tool__stage" data-stage-area>
+        <canvas class="tool__canvas" data-try-canvas tabindex="0" role="img" aria-label="{{c.try.canvas_label|attr}}"></canvas>
+        <div class="tool__empty" data-empty>
+          <p class="tool__lead">{{c.try.empty}}</p>
+          <div class="tool__pick">
+            <label class="btn btn--solid">{{c.try.take}}<input type="file" accept="image/*" capture="environment" data-photo class="vh"></label>
+            <label class="btn btn--line">{{c.try.choose}}<input type="file" accept="image/*" data-photo class="vh"></label>
+          </div>
+          <button type="button" class="tool__link" data-sample>{{c.try.sample}}</button>
+          <p class="tool__fine">{{c.try.privacy}}</p>
+        </div>
+        <p class="tool__hint" data-hint hidden>{{c.try.hint}}</p>
+        <p class="tool__busy" data-busy hidden>{{c.try.loading}}</p>
+      </div>
+      <form class="tool__panel" data-form>
+        <label class="fld"><span class="fld__l">{{c.try.name_label}}</span><input class="fld__i fld__i--ar" name="name" lang="ar" dir="rtl" maxlength="28" autocomplete="family-name" placeholder="{{c.try.name_ph|attr}}"></label>
+        <div class="fld-row">
+          <label class="fld"><span class="fld__l">{{c.try.number_label}}</span><input class="fld__i" name="number" inputmode="numeric" maxlength="5" dir="ltr" autocomplete="off"></label>
+          <label class="fld"><span class="fld__l">{{c.try.latin_label}}</span><input class="fld__i" name="latin" lang="en" dir="ltr" maxlength="28" autocomplete="off" placeholder="{{c.try.latin_ph|attr}}"></label>
+        </div>
+        <fieldset class="opts"><legend class="fld__l">{{c.try.style_label}}</legend>
+          {{#each c.try.styles}}<label class="chip"><input class="vh" type="radio" name="style" value="{{.id|attr}}"{{#if .default}} checked{{/if}}><span class="chip__in chip--{{.id|attr}}"><span class="chip__ar" lang="ar" dir="rtl" aria-hidden="true">حفر</span><span data-label>{{.label}}</span></span></label>
+          {{/each}}</fieldset>
+        <fieldset class="opts"><legend class="fld__l">{{c.try.finish_label}}</legend>
+          {{#each c.try.finishes}}<label class="chip"><input class="vh" type="radio" name="finish" value="{{.id|attr}}"{{#if .default}} checked{{/if}}><span class="chip__in"><span class="sw sw--{{.id|attr}}" aria-hidden="true"></span><span data-label>{{.label}}</span></span></label>
+          {{/each}}</fieldset>
+        <fieldset class="opts"><legend class="fld__l">{{c.try.light_label}}</legend>
+          <label class="chip"><input class="vh" type="radio" name="light" value="day" checked><span class="chip__in"><span data-label>{{c.try.day}}</span></span></label>
+          <label class="chip"><input class="vh" type="radio" name="light" value="night"><span class="chip__in"><span data-label>{{c.try.night}}</span></span></label>
+        </fieldset>
+        <label class="fld"><span class="fld__l">{{c.try.size_label}}</span><input class="fld__r" type="range" name="size" min="25" max="250" value="100"></label>
+        <div class="tool__actions">
+          <button type="button" class="btn btn--solid" data-send>{{c.try.send}}</button>
+          <button type="button" class="btn btn--line" data-save>{{c.try.save}}</button>
+          <label class="tool__link">{{c.try.change}}<input type="file" accept="image/*" data-photo class="vh"></label>
+        </div>
+        <p class="tool__fine">{{c.try.note}}</p>
+      </form>
+    </div>
+  </dialog>
+</section>
+
 <div class="kerf" aria-hidden="true"></div>
 
 <section class="sec sec--night" id="built" data-surface="dark" aria-labelledby="built-h">
   <div class="wrap">
     <div class="sec__head sec__head--wide" data-reveal>
-      <p class="eyebrow"><bdi>03</bdi></p>
+      <p class="eyebrow"><bdi>04</bdi></p>
       <h2 class="h2" id="built-h">{{c.built.title}}</h2>
       <p class="lede">{{c.built.intro}}</p>
     </div>
@@ -151,7 +217,7 @@
 <section class="sec sec--ivory" id="name" data-surface="light" aria-labelledby="name-h">
   <div class="wrap sec__grid sec__grid--media">
     <div class="sec__head" data-reveal>
-      <p class="eyebrow"><bdi>04</bdi></p>
+      <p class="eyebrow"><bdi>05</bdi></p>
       <h2 class="h2" id="name-h">{{c.name.title}}</h2>
       <p class="lede">{{c.name.intro}}</p>
       <figure class="frame frame--proof">{{> proof}}</figure>
@@ -169,7 +235,7 @@
   <div class="wrap sec__grid sec__grid--media">
     <figure class="frame frame--night" data-reveal>{{> night}}</figure>
     <div class="sec__head" data-reveal>
-      <p class="eyebrow"><bdi>05</bdi></p>
+      <p class="eyebrow"><bdi>06</bdi></p>
       <h2 class="h2" id="dark-h">{{c.dark.title}}</h2>
       <p class="lede">{{c.dark.intro}}</p>
       {{#if c.dark.show_lighting}}<p class="body"{{#if c.dark.pending}} data-pending{{/if}}>{{c.dark.lighting}}{{#if c.dark.pending}} <span class="badge">{{c.ui.pending}}</span>{{/if}}</p>{{/if}}
@@ -181,7 +247,7 @@
 <section class="sec sec--sand" id="kit" data-surface="light" aria-labelledby="kit-h">
   <div class="wrap sec__grid">
     <div class="sec__head" data-reveal>
-      <p class="eyebrow"><bdi>06</bdi></p>
+      <p class="eyebrow"><bdi>07</bdi></p>
       <h2 class="h2" id="kit-h">{{c.kit.title}}</h2>
       {{#if c.kit.has_items}}<p class="lede">{{c.kit.intro}}</p>{{/if}}
       {{#if c.kit.show_fallback}}<p class="lede">{{c.kit.fallback}}</p>{{/if}}
@@ -199,7 +265,7 @@
 <section class="sec sec--night sec--start" id="start" data-surface="dark" aria-labelledby="start-h">
   <div class="wrap sec__grid">
     <div class="sec__head" data-reveal>
-      <p class="eyebrow"><bdi>07</bdi></p>
+      <p class="eyebrow"><bdi>08</bdi></p>
       <h2 class="h2 h2--xl" id="start-h">{{c.start.title}}</h2>
     </div>
     <div class="sec__body">

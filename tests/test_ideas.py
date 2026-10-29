@@ -42,7 +42,7 @@ class IdeasTests(unittest.TestCase):
 
     def test_every_picture_has_alt_and_size(self):
         for lang, page in self.pages.items():
-            imgs = re.findall(r'<img [^>]*loading="lazy"[^>]*>', page)
+            imgs = re.findall(r'<img [^>]*assets/img/ideas/[^>]*>', page)
             self.assertEqual(len(imgs), len(IMAGES), lang)
             for tag in imgs:
                 self.assertRegex(tag, r'alt="[^"]{40,}"')
@@ -63,6 +63,20 @@ class IdeasTests(unittest.TestCase):
     def test_whatsapp_links_name_the_style(self):
         self.assertIn('wa.me/971501234567?text=', self.pages['en'])
         self.assertEqual(self.pages['en'].count('data-idea-ask'), len(IMAGES))
+
+    def test_try_tool_markup(self):
+        for lang, page in self.pages.items():
+            self.assertIn('id="try"', page)
+            self.assertIn('data-try-canvas', page)
+            self.assertEqual(page.count('data-try-open'), 2, lang)
+            self.assertEqual(len(re.findall(r'name="style" value="(naskh|kufi|ruqaa|modern|bold)"', page)), 5)
+            self.assertEqual(len(re.findall(r'name="finish" value="[a-z]+"', page)), 6)
+            self.assertEqual(page.count('capture="environment"'), 1)
+            self.assertRegex(page, r'data-wa="https://wa\.me/971501234567\?text="')
+            self.assertRegex(page, r'try-demo-800\.jpg" width="1060" height="729" alt="[^"]{40,}"')
+        for name in ('try-demo-800.webp', 'try-demo-1060.webp', 'try-demo-800.jpg'):
+            self.assertTrue(os.path.isfile(os.path.join(ROOT, 'assets', 'img', 'try', name)), name)
+        self.assertTrue(os.path.isfile(os.path.join(ROOT, 'assets', 'js', 'preview.js')))
 
     def test_image_sitemap(self):
         self.assertIn('xmlns:image=', self.sitemap)
