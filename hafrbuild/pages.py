@@ -15,7 +15,7 @@ LANGS = {
 }
 
 # Strings rendered in the Arabic display face (Amiri); the font is subset to their characters.
-DISPLAY_KEYS = ['stage.headline', 'stage.captions', 'make.title', 'ideas.title', 'ideas.items', 'built.title', 'name.title',
+DISPLAY_KEYS = ['stage.headline', 'stage.captions', 'make.title', 'ideas.title', 'ideas.items', 'try.title', 'built.title', 'name.title',
                 'dark.title', 'kit.title', 'start.title', 'name.proof.name', 'dark.scene_label']
 
 FONT_CSS = 'https://fonts.googleapis.com/css2?'
@@ -219,6 +219,7 @@ def page_context(lang, site, content, *, production, head_js, importmap, fonts, 
         'head_js': head_js,
         'importmap': importmap,
         'wa_url': whatsapp_url(site.get('whatsapp'), gated['start']['wa_message']),
+        'wa_base': f"https://wa.me/{site['whatsapp']}?text=" if site.get('whatsapp') else 'https://wa.me/?text=',
         'whatsapp': site.get('whatsapp'),
         'instagram_url': f"https://www.instagram.com/{site['instagram']}" if site.get('instagram') else None,
         'has_instagram': bool(site.get('instagram')),

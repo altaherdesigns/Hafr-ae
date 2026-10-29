@@ -179,9 +179,33 @@ function initIdeas() {
   lb.addEventListener('close', () => { img.removeAttribute('src'); });
 }
 
+// "See it on your wall": a full-screen dialog; the tool itself (preview.js) and
+// its Arabic fonts load only the first time someone opens it.
+function initTry() {
+  const dlg = document.querySelector('[data-try]');
+  if (!dlg || typeof dlg.showModal !== 'function') {
+    document.querySelectorAll('[data-try-open]').forEach(a => { a.hidden = true; });
+    return;
+  }
+  let tool = null;
+  const open = async e => {
+    e.preventDefault();
+    dlg.showModal();
+    document.documentElement.style.overflow = 'hidden';
+    if (!tool) {
+      try { tool = (await import('./preview.js')).mount(dlg); } catch (err) { dlg.close(); return; }
+    } else tool.fit();
+  };
+  document.querySelectorAll('[data-try-open]').forEach(a => a.addEventListener('click', open));
+  dlg.querySelector('[data-try-close]').addEventListener('click', () => dlg.close());
+  dlg.addEventListener('close', () => { document.documentElement.style.overflow = ''; });
+  if (location.hash === '#try-open') open(new Event('click'));
+}
+
 initHeader();
 initReveals();
 initIdeas();
+initTry();
 initStage();
 
 // Development builds only: ?at=<section id> jumps straight to a section (for screenshots).
