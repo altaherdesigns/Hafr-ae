@@ -1,0 +1,102 @@
+{
+  "_note": "Strings for the signage section (/signage/ and /en/signage/). Both languages must keep the same shape. Business details feed the LocalBusiness structured data on every signage page.",
+  "business": {
+    "address": {
+      "streetAddress": "Al Hail Industrial Area",
+      "addressLocality": "Fujairah",
+      "addressRegion": "Fujairah",
+      "addressCountry": "AE"
+    },
+    "cities": ["Fujairah", "Kalba", "Khor Fakkan", "Dibba", "Masafi", "Sharjah", "Dubai", "Ras Al Khaimah", "Ajman", "Abu Dhabi"]
+  },
+  "en": {
+    "lang_name": "English",
+    "hub": {
+      "title": "Signage Company in Fujairah: Shop, Office and Building Signs | Hafr",
+      "description": "Shop sign boards, 3D letters, lit signs, office, wayfinding and pylon signs, cut and built in Fujairah in Arabic and English, for businesses across the UAE.",
+      "label": "Signage",
+      "h1": "Signs for shops, offices and buildings",
+      "intro": "Cut and built in our workshop in Al Hail, Fujairah. Arabic set correctly, a proof at true size before anything is cut, and installation on request across the UAE.",
+      "list_label": "What we make",
+      "why_title": "Why businesses choose Hafr",
+      "why_intro": "The same workshop and the same checks as our villa signs.",
+      "why": [
+        {"title": "Cut in our own workshop", "text": "Cutting, fabrication and finishing happen in the Al Taher Group workshops in Fujairah, not at a subcontractor."},
+        {"title": "Arabic set right", "text": "A second Arabic reader checks every Arabic line against the text you sent, before anything is cut."},
+        {"title": "A proof at true size", "text": "You approve a dimensioned drawing of the sign on a photo of your shopfront before production starts."},
+        {"title": "One contact, start to finish", "text": "Design, cutting, finishing and fitting, handled by one team, on WhatsApp."}
+      ],
+      "villa_title": "Looking for a sign for your home?",
+      "villa_text": "House numbers, family names and gate panels have their own page.",
+      "villa_link": "See villa signs",
+      "cta": "Send a photo of the shopfront or wall, the rough width and your business name. We reply with a size suggestion and a written quote.",
+      "wa_message": "Hello Hafr, I'd like a quote for a business sign."
+    },
+    "page": {
+      "crumbs": "Breadcrumb",
+      "home": "Hafr",
+      "signage": "Signage",
+      "label": "Signage",
+      "toc": "On this page",
+      "more": "Other signs we make",
+      "all": "All signage",
+      "quote": "Get a quote on WhatsApp",
+      "updated": "Updated",
+      "start_title": "Start with a photo",
+      "send": [
+        "A photo of the shopfront, wall or site",
+        "The rough width available",
+        "Your business name, and your logo file if you have one",
+        "The Arabic and English text, typed",
+        "Whether you want it lit, and whether there is power nearby"
+      ],
+      "site_nav": "Site",
+      "wa_message": "Hello Hafr, I'd like a quote for {name}."
+    }
+  },
+  "ar": {
+    "lang_name": "عربي",
+    "hub": {
+      "title": "شركة لافتات في الفجيرة: لوحات المحلات والمكاتب والمباني | حفر",
+      "description": "لوحات محلات وحروف بارزة ولافتات مضيئة ولافتات مكاتب وإرشاد وأعمدة، تُقصّ وتُصنع في الفجيرة بالعربية والإنجليزية، للشركات في جميع أنحاء الإمارات.",
+      "label": "اللافتات",
+      "h1": "لافتاتٌ للمحلات والمكاتب والمباني",
+      "intro": "تُقصّ وتُصنع في ورشتنا في الحيل بالفجيرة. خطٌّ عربيٌّ صحيح، ومسودةٌ بالمقاس الحقيقي قبل أي قطع، وتركيبٌ عند الطلب في جميع أنحاء الإمارات.",
+      "list_label": "ما نصنع",
+      "why_title": "لماذا تختار الشركات «حفر»",
+      "why_intro": "الورشة نفسها والمراجعة نفسها التي نعتمدها في لافتات الفلل.",
+      "why": [
+        {"title": "تُقصّ في ورشتنا", "text": "القصّ والتصنيع والتشطيب تتمّ في ورش مجموعة الطاهر في الفجيرة، لا عند مقاولٍ من الباطن."},
+        {"title": "خطٌّ عربيٌّ صحيح", "text": "قارئٌ عربيٌّ ثانٍ يراجع كل سطرٍ عربي مقابل النص الذي أرسلته، قبل أي قطع."},
+        {"title": "مسودةٌ بالمقاس الحقيقي", "text": "تعتمد رسماً بالمقاسات للّافتة على صورة واجهة محلك قبل بدء التصنيع."},
+        {"title": "جهة تواصلٍ واحدة", "text": "التصميم والقصّ والتشطيب والتركيب، يتولّاها فريقٌ واحد عبر واتساب."}
+      ],
+      "villa_title": "تبحث عن لافتةٍ لبيتك؟",
+      "villa_text": "لأرقام البيوت وأسماء العائلات وألواح البوابات صفحتها الخاصة.",
+      "villa_link": "شاهد لافتات الفلل",
+      "cta": "أرسل صورة الواجهة أو الجدار، والعرض التقريبي، واسم نشاطك التجاري. نردّ عليك باقتراحٍ للمقاس وعرض سعرٍ مكتوب.",
+      "wa_message": "مرحباً حفر، أودّ الحصول على عرض سعرٍ للافتة نشاطٍ تجاري."
+    },
+    "page": {
+      "crumbs": "مسار التنقل",
+      "home": "حفر",
+      "signage": "اللافتات",
+      "label": "اللافتات",
+      "toc": "في هذه الصفحة",
+      "more": "لافتاتٌ أخرى نصنعها",
+      "all": "كل اللافتات",
+      "quote": "اطلب عرض سعر عبر واتساب",
+      "updated": "آخر تحديث",
+      "start_title": "ابدأ بصورة",
+      "send": [
+        "صورة للواجهة أو الجدار أو الموقع",
+        "العرض التقريبي المتاح",
+        "اسم نشاطك التجاري، وملف الشعار إن وُجد",
+        "النص بالعربية والإنجليزية، مكتوباً",
+        "هل تريدها مضيئة، وهل يوجد مصدر كهرباء قريب"
+      ],
+      "site_nav": "الموقع",
+      "wa_message": "مرحباً حفر، أودّ الحصول على عرض سعرٍ لـ{name}."
+    }
+  }
+}

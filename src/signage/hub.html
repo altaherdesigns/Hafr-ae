@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="{{lang}}" dir="{{dir}}">
+<head>
+{{> sg_head}}
+</head>
+<body class="guide-page sg-page">
+{{> sg_header}}
+
+<main id="main">
+<header class="post-hero post-hero--index" data-surface="dark">
+  <div class="wrap post-hero__in">
+    <div class="post-hero__text">
+      <p class="post-hero__label">{{s.hub.label}}</p>
+      <h1 class="post-hero__title" id="content">{{s.hub.h1}}</h1>
+      <p class="post-hero__dek">{{s.hub.intro}}</p>
+      <p class="cta sg-hero__cta">
+        <a class="btn btn--solid" href="{{cta.wa_url|attr}}" target="_blank" rel="noopener">{{s.page.quote}}</a>
+      </p>
+    </div>
+  </div>
+</header>
+
+<section class="sec sec--ivory" data-surface="light" aria-labelledby="types-h">
+  <div class="wrap">
+    <h2 class="more__title" id="types-h">{{s.hub.list_label}}</h2>
+    <ol class="rows guide-rows">
+      {{#each pages}}<li class="row guide-row">
+        <span class="row__num"><bdi>{{.num}}</bdi></span>
+        <div class="guide-row__main">
+          <h3 class="row__name"><a href="{{.url}}">{{.name}}</a></h3>
+          <p class="row__desc">{{.summary}}</p>
+        </div>
+      </li>
+      {{/each}}</ol>
+  </div>
+</section>
+
+<section class="sec sec--sand" data-surface="light" aria-labelledby="why-h">
+  <div class="wrap sec__grid">
+    <div class="sec__head">
+      <h2 class="h2" id="why-h">{{s.hub.why_title}}</h2>
+      <p class="lede">{{s.hub.why_intro}}</p>
+    </div>
+    <ol class="steps">
+      {{#each s.hub.why}}<li class="step">
+        <span class="step__num"><bdi>{{@nn}}</bdi></span>
+        <div><h3 class="step__title">{{.title}}</h3><p class="step__text">{{.text}}</p></div>
+      </li>
+      {{/each}}</ol>
+  </div>
+</section>
+
+<section class="sec sec--ivory sg-villa" data-surface="light" aria-labelledby="villa-h">
+  <div class="wrap">
+    <h2 class="h2" id="villa-h">{{s.hub.villa_title}}</h2>
+    <p class="lede">{{s.hub.villa_text}} <a href="{{home}}">{{s.hub.villa_link}}</a></p>
+  </div>
+</section>
+
+{{> sg_cta}}
+</main>
+
+{{> sg_footer}}
+</body>
+</html>

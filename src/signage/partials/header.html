@@ -1,0 +1,18 @@
+<a class="skip" href="#content">{{c.ui.skip}}</a>
+
+<header class="hd" data-hd data-tone="dark">
+  <div class="hd__in">
+    <a class="hd__home" href="{{home}}" aria-label="Hafr">{{> lockup}}</a>
+    <nav class="hd__nav" aria-label="{{c.ui.nav_label|attr}}">
+      <a href="{{home}}#make">{{c.nav.make}}</a>
+      <a href="{{hub}}" aria-current="{{nav_current}}">{{c.nav.signage}}</a>
+      <a href="{{home}}#name">{{c.nav.name}}</a>
+      {{#if show_guides}}<a href="{{guides_href}}">Guides</a>
+      {{/if}}<a href="{{home}}#start">{{c.nav.start}}</a>
+    </nav>
+    <div class="hd__end">
+      <a class="hd__lang" href="{{switch.href}}" hreflang="{{switch.lang}}" lang="{{switch.lang}}" dir="{{switch.dir}}">{{switch.label}}</a>
+      <a class="btn btn--line" href="#start">{{c.nav.begin}}</a>
+    </div>
+  </div>
+</header>

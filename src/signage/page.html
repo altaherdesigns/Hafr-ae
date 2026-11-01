@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="{{lang}}" dir="{{dir}}">
+<head>
+{{> sg_head}}
+</head>
+<body class="guide-page sg-page">
+{{> sg_header}}
+
+<main id="main">
+<article class="post" aria-labelledby="post-h">
+  <header class="post-hero" data-surface="dark">
+    <div class="wrap post-hero__in">
+      <nav class="crumbs" aria-label="{{s.page.crumbs|attr}}">
+        <a href="{{home}}">{{s.page.home}}</a><span class="crumbs__cut" aria-hidden="true"></span><a href="{{hub}}">{{s.page.signage}}</a>
+      </nav>
+      <div class="post-hero__text">
+        <p class="post-hero__label">{{s.page.label}} <bdi>{{sg.num}}</bdi></p>
+        <h1 class="post-hero__title" id="post-h">{{sg.title}}</h1>
+        <p class="post-hero__dek">{{sg.dek}}</p>
+        <p class="cta sg-hero__cta">
+          <a class="btn btn--solid" href="{{cta.wa_url|attr}}" target="_blank" rel="noopener">{{s.page.quote}}</a>
+          <span class="sg-hero__upd">{{s.page.updated}} <time datetime="{{sg.updated_iso}}">{{sg.updated_human}}</time></span>
+        </p>
+      </div>
+      <div class="slice" aria-hidden="true"><span class="slice__a">{{sg.num}}</span><span class="slice__b">{{sg.num}}</span><span class="slice__kerf"></span></div>
+    </div>
+  </header>
+
+  <div class="post-body" data-surface="light">
+    <div class="wrap post-body__grid">
+      {{#if sg.has_toc}}<nav class="toc" aria-label="{{s.page.toc|attr}}">
+        <details class="toc__box" data-toc>
+          <summary class="toc__label">{{s.page.toc}}</summary>
+          <ol class="toc__list">
+            {{#each sg.toc}}<li><a href="#{{.id|attr}}">{{.text}}</a></li>
+            {{/each}}</ol>
+        </details>
+      </nav>{{/if}}
+      <div class="prose" id="content">
+{{sg.body|raw}}
+      </div>
+    </div>
+  </div>
+</article>
+
+{{#if sg.has_related}}<section class="sec sec--sand more" data-surface="light" aria-labelledby="more-h">
+  <div class="wrap">
+    <h2 class="more__title" id="more-h">{{s.page.more}}</h2>
+    <ol class="rows guide-rows">
+      {{#each sg.related}}<li class="row guide-row">
+        <span class="row__num"><bdi>{{.num}}</bdi></span>
+        <div class="guide-row__main">
+          <h3 class="row__name"><a href="{{.url}}">{{.name}}</a></h3>
+          <p class="row__desc">{{.summary}}</p>
+        </div>
+      </li>
+      {{/each}}</ol>
+    <p class="sg-all"><a href="{{hub}}">{{s.page.all}}</a></p>
+  </div>
+</section>{{/if}}
+
+{{> sg_cta}}
+</main>
+
+{{> sg_footer}}
+</body>
+</html>

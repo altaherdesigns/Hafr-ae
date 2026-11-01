@@ -1,0 +1,31 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{page.title}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+{{#each fonts}}<link rel="stylesheet" href="{{.|attr}}">
+{{/each}}<link rel="stylesheet" href="/assets/css/site.css">
+<link rel="stylesheet" href="/assets/css/blog.css">
+<link rel="stylesheet" href="/assets/css/signage.css">
+<meta name="description" content="{{page.description|attr}}">
+{{#if dev}}<meta name="robots" content="noindex">
+{{/if}}<link rel="canonical" href="{{page.canonical}}">
+{{#each alternates}}<link rel="alternate" hreflang="{{.hreflang}}" href="{{.href}}">
+{{/each}}<meta name="theme-color" content="#0F2427">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hafr">
+<meta property="og:title" content="{{page.og_title|attr}}">
+<meta property="og:description" content="{{page.description|attr}}">
+<meta property="og:url" content="{{page.canonical}}">
+<meta property="og:locale" content="{{og_locale}}">
+<meta property="og:image" content="{{page.og_image}}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{page.og_image_alt|attr}}">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{{page.jsonld|raw}}</script>
+<script type="module" src="/assets/js/site.js"></script>
+<script type="module" src="/assets/js/blog.js"></script>

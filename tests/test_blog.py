@@ -240,6 +240,10 @@ class BlogBuildTests(unittest.TestCase):
     def test_every_internal_link_and_anchor_resolves(self):
         known = {'/', '/en/', '/en/blog/', '/en/blog/feed.xml'}
         known |= {p.url for p in self.posts if not p.draft}
+        for d, _, fs in os.walk(self.out):
+            if 'index.html' in fs:
+                known.add('/' + os.path.relpath(d, self.out).replace(os.sep, '/').strip('.').strip('/') + '/')
+        known = {k.replace('//', '/') for k in known}
         for p in [q for q in self.posts if not q.draft] + [None]:
             html_text = self.page(p.url if p else '/en/blog/')
             parser = _Ids()
