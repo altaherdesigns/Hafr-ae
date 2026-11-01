@@ -191,7 +191,7 @@ def importmap(cdn=DEFAULT_CDN, version=THREE_VERSION):
     }})
 
 
-def page_context(lang, site, content, *, production, head_js, importmap, fonts, images=()):
+def page_context(lang, site, content, *, production, head_js, importmap, fonts, images=(), signage_items=()):
     info = LANGS[lang]
     gated, _ = gate(content, production)
     url = site['siteUrl']
@@ -212,6 +212,8 @@ def page_context(lang, site, content, *, production, head_js, importmap, fonts, 
         'switch': info['switch'],
         # The guides are in English: linked from the English menu, and from both footers.
         'guides': {'href': '/en/blog/', 'label': 'Guides', 'in_header': lang == 'en'},
+        'signage_href': '/signage/' if lang == 'ar' else '/en/signage/',
+        'signage_items': list(signage_items),
         'fonts': fonts,
         'jsonld': jsonld(site),
         'ideas': idea_items,
@@ -229,7 +231,7 @@ def page_context(lang, site, content, *, production, head_js, importmap, fonts, 
     }
 
 
-def sitemap(site, extra=(), images=()):
+def sitemap(site, extra=(), images=(), pairs=()):
     """The two landing pages (with their language alternates and the Ideas images),
     then any extra (url, lastmod) entries such as the guides, which exist in English only."""
     url = site['siteUrl']
@@ -238,6 +240,12 @@ def sitemap(site, extra=(), images=()):
     pics = ''.join(f"<image:image><image:loc>{url}/assets/img/ideas/{img['slug']}-1408.webp</image:loc></image:image>"
                    for img in images)
     body = ''.join(f'<url><loc>{u}</loc>{links}{pics}</url>' for u, _ in pages)
+    for ar, en, m in pairs:
+        alts = (f'<xhtml:link rel="alternate" hreflang="ar" href="{ar}"/>'
+                f'<xhtml:link rel="alternate" hreflang="en" href="{en}"/>'
+                f'<xhtml:link rel="alternate" hreflang="x-default" href="{ar}"/>')
+        mod = f'<lastmod>{m}</lastmod>' if m else ''
+        body += f'<url><loc>{ar}</loc>{mod}{alts}</url><url><loc>{en}</loc>{mod}{alts}</url>'
     body += ''.join(f'<url><loc>{u}</loc>' + (f'<lastmod>{m}</lastmod>' if m else '') + '</url>'
                     for u, m in extra)
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'

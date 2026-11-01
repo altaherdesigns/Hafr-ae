@@ -18,7 +18,7 @@ MarkdownError, so a post that would render wrongly never ships quietly.
 import html
 import re
 
-FAQ_TITLE = re.compile(r'^frequently asked questions$', re.I)
+FAQ_TITLE = re.compile(r'^(frequently asked questions|الأسئلة الشائعة)$', re.I)
 _LINK = re.compile(r'\[([^\]\n]+)\]\(([^)\s]+)\)')
 _BOLD = re.compile(r'\*\*(.+?)\*\*', re.S)
 _ITALIC = re.compile(r'(?<![\*\w])\*(?![\s\*])(.+?)(?<![\s\*])\*(?![\*\w])', re.S)
@@ -36,7 +36,8 @@ def slugify(text):
     text = re.sub(r'<[^>]+>', '', text)
     text = html.unescape(text).lower()
     text = re.sub(r'[\u2018\u2019\u201c\u201d\'"]', '', text)
-    text = re.sub(r'[^a-z0-9]+', '-', text).strip('-')
+    text = re.sub(r'[\u064B-\u0652\u0640]', '', text)  # Arabic marks and tatweel
+    text = re.sub(r'[^a-z0-9\u0621-\u064A\u0660-\u0669]+', '-', text).strip('-')
     return text or 'section'
 
 
@@ -57,8 +58,10 @@ def plain(md_inline):
     return smart_quotes(re.sub(r'\s+', ' ', t).strip())
 
 
-def _text(segment):
+def _text(segment, wrap_arabic=True):
     escaped = html.escape(segment, quote=False)
+    if not wrap_arabic:
+        return escaped
     return _ARABIC_RUN.sub(lambda m: f'<span lang="ar" dir="rtl">{m.group(0)}</span>', escaped)
 
 
@@ -67,7 +70,8 @@ class Renderer:
     (None, False) to unwrap the link to plain text; it raises MarkdownError for a
     link that must not ship. `figure(src, alt, caption, n)` returns figure HTML."""
 
-    def __init__(self, resolve_link, figure):
+    def __init__(self, resolve_link, figure, lang='en'):
+        self.lang = lang
         self.resolve_link = resolve_link
         self.figure = figure
         self.headings = []      # [(level, id, text)]
@@ -104,10 +108,10 @@ class Renderer:
                 if m and (best is None or m.start() < best[1].start()):
                     best = (kind, m)
             if not best:
-                out.append(_text(src[pos:]))
+                out.append(_text(src[pos:], self.lang != 'ar'))
                 break
             kind, m = best
-            out.append(_text(src[pos:m.start()]))
+            out.append(_text(src[pos:m.start()], self.lang != 'ar'))
             if kind == 'link':
                 href, external = self.resolve_link(m.group(2))
                 inner = self._inline(m.group(1))

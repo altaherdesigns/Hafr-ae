@@ -11,7 +11,7 @@ import os
 import shutil
 import sys
 
-from hafrbuild import blogsite
+from hafrbuild import blogsite, signage
 from hafrbuild.blog import BlogError
 from hafrbuild.checks import find_banned, load_banned, validate_site
 from hafrbuild.pages import (DEFAULT_CDN, amiri_text, arabic_chars, font_links, importmap,
@@ -92,6 +92,11 @@ def main(argv=None):
     imap = importmap(args.cdn or DEFAULT_CDN)
     amiri = amiri_text([contents['ar']])
 
+    try:
+        sg_items = signage.items(signage.load(ROOT))
+    except BlogError as exc:
+        return fail([f'signage: {e}' for e in exc.errors])
+
     pages = {}
     try:
         for lang in ('ar', 'en'):
@@ -102,7 +107,8 @@ def main(argv=None):
                 amiri_en = ''.join(ch for ch in amiri_text([contents['en']]) if '؀' <= ch <= 'ۿ')
                 fonts = font_links('en', amiri_en, cairo_text=arabic_chars(contents['en']) + 'عربي')
             ctx = page_context(lang, site, contents[lang], production=production,
-                               head_js=head_js, importmap=imap, fonts=fonts, images=images)
+                               head_js=head_js, importmap=imap, fonts=fonts, images=images,
+                               signage_items=sg_items[lang])
             pages[lang] = render(template, ctx, partials=partials, dev=not production)
     except (RenderError, ValueError) as exc:
         return fail([f'render: {exc}'])
@@ -126,6 +132,17 @@ def main(argv=None):
         return fail([f'guides render: {exc}'])
     problems += blog_problems
 
+    # The signage section (/signage/ and /en/signage/), in both languages, on the guides' rulebook.
+    guides = {u.rstrip('/').rsplit('/', 1)[-1] for u, _ in blog_urls if '/en/blog/' in u and not u.endswith('/en/blog/')}
+    c_both = {lang: gate(contents[lang], production)[0] for lang in ('ar', 'en')}
+    try:
+        sg_files, sg_pairs, sg_problems, _ = signage.build(ROOT, site, c_both, production, partials, guides)
+    except BlogError as exc:
+        return fail([f'signage: {e}' for e in exc.errors])
+    except RenderError as exc:
+        return fail([f'signage render: {exc}'])
+    problems += sg_problems
+
     if production and problems:
         return fail(problems)
     for p in problems:
@@ -138,9 +155,9 @@ def main(argv=None):
     shutil.copy(os.path.join(ROOT, 'CNAME'), os.path.join(out, 'CNAME'))
     _write(os.path.join(out, 'index.html'), pages['ar'])
     _write(os.path.join(out, 'en', 'index.html'), pages['en'])
-    for rel, text in blog_files.items():
+    for rel, text in list(blog_files.items()) + list(sg_files.items()):
         _write(os.path.join(out, *rel.split('/')), text)
-    _write(os.path.join(out, 'sitemap.xml'), sitemap(site, blog_urls, images))
+    _write(os.path.join(out, 'sitemap.xml'), sitemap(site, blog_urls, images, sg_pairs))
     _write(os.path.join(out, 'robots.txt'), robots(site, production))
     for note in blog_notes:
         print(f'guides: {note}')

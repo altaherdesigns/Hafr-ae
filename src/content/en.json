@@ -15,6 +15,7 @@
   "nav": {
     "make": "What we make",
     "ideas": "Ideas",
+    "signage": "Signage",
     "built": "Craft",
     "name": "The name",
     "start": "Contact",
@@ -56,6 +57,11 @@
       }
     ],
     "also": "From the same workshop: cut wall art for interiors."
+  },
+  "biz": {
+    "title": "Signs for businesses",
+    "intro": "The same workshop makes signs for shops, offices and buildings, in Arabic and English, from Fujairah to the rest of the UAE.",
+    "all": "All signage"
   },
   "ideas": {
     "title": "Ideas to start from",

@@ -1,0 +1,30 @@
+/* hafr.ae signage section (/signage/, /en/signage/) — loaded after site.css and blog.css.
+   The guide styles are written for English; these rules set the Arabic faces and the
+   few parts the signage pages add. */
+
+.sg-hero__cta { margin-block-start: 32px; }
+.sg-hero__upd { font: 400 14px/1.4 var(--f-body); color: var(--mist); }
+.sg-all { margin: 28px 0 0; }
+.sg-all a { font-weight: 500; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(115, 95, 54, .5); }
+.sg-villa { padding-block: clamp(64px, 8vw, 104px); }
+.sg-villa .lede a { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+
+/* Arabic: Amiri for display, Cairo for text; no letter-spacing, no italics */
+html[lang="ar"] .sg-page { --f-en-display: var(--f-ar-display); --f-en-body: var(--f-ar-body); }
+html[lang="ar"] .sg-page .post-hero__title { font-weight: 400; line-height: 1.4; max-inline-size: 22ch; }
+html[lang="ar"] .sg-page .post-hero__label,
+html[lang="ar"] .sg-page .crumbs { font-size: 16px; }
+html[lang="ar"] .sg-page .prose { font-size: 19px; line-height: 1.95; }
+html[lang="ar"] .sg-page .prose h2 { font-weight: 400; line-height: 1.5; }
+html[lang="ar"] .sg-page .prose h3 { font-weight: 600; }
+html[lang="ar"] .sg-page .faq__q { font-weight: 400; line-height: 1.6; }
+html[lang="ar"] .sg-page .more__title,
+html[lang="ar"] .sg-page .row__name { font-weight: 400; line-height: 1.55; }
+html[lang="ar"] .sg-page .prose thead th { font-size: 15px; }
+html[lang="ar"] .sg-page .toc__label { font-size: 15px; }
+/* numbers and the kerf slice stay Latin */
+html[lang="ar"] .sg-page .slice,
+html[lang="ar"] .sg-page .row__num,
+html[lang="ar"] .sg-page .prose ol > li::before { font-family: 'Outfit', 'Helvetica Neue', Arial, sans-serif; }
+html[lang="ar"] .sg-page .slice { font-family: 'Outfit', sans-serif; font-weight: 300; }
+html[lang="ar"] .sg-page .crumbs__cut { transform: rotate(35deg); }
